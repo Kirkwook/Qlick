@@ -1,1 +1,1 @@
-# mobile-cribbage
+# phys-quiz
