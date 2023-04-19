@@ -2,63 +2,42 @@ import React from 'react';
 import Home from './screens/home';
 import Navigator from './routes/homeStack';
 
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function App() {
   return (
     <Navigator/>
+    /*<View style={styles.container}>
+          <StatusBar style="auto" />
+
+          <h1>Welcome to QClick</h1>
+          <div className="login-wrapper">
+              <form>
+                  <label>
+                      <p>Username</p>
+                      <input type="text" />
+                  </label>
+                  <label>
+                      <p>Password</p>
+                      <input type="password" />
+                  </label>
+                  <div>
+                      <button type="submit">Submit</button>
+                  </div>
+              </form>
+          </div>
+    </View>*/
   );
 }
 
-
-
-
-
-
-// import { StatusBar } from 'expo-status-bar';
-// import { StyleSheet, Text, View } from 'react-native';
-
-// export default function App() {
-//   console.log("App Executed");
-//   return (
-//     <View style={styles.container}>
-//       <Text>Qlick Hello World!</Text>
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
-
-
-
-// import ReactDOM from "react-dom";
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Layout from "./pages/Layout";
-// import Home from "./pages/Home";
-// // import Blogs from "./pages/Blogs";
-// // import Contact from "./pages/Contact";
-// // import NoPage from "./pages/NoPage";
-
-// export default function App() {
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route path="/" element={<Layout />}>
-//           <Route index element={<Home />} />
-//           <Route path="blogs" element={<Blogs />} />
-//           <Route path="contact" element={<Contact />} />
-//           <Route path="*" element={<NoPage />} />
-//         </Route>
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// }
-
-// ReactDOM.render(<App />, document.getElementById("root"));
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
