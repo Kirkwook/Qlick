@@ -1,3 +1,7 @@
+import React from 'react';
+import Home from './screens/home';
+import Navigator from './routes/homeStack';
+
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useParams } from "react-router";
@@ -5,7 +9,8 @@ import { Link } from "react-router-dom";
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <Navigator/>
+    /*<View style={styles.container}>
           <StatusBar style="auto" />
 
           <h1>Welcome to QClick</h1>
@@ -24,10 +29,9 @@ export default function App() {
                   </div>
               </form>
           </div>
-    </View>
+    </View>*/
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
