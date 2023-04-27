@@ -2,18 +2,33 @@ import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import {StyleSheet, View, Text, TextInput, Image, Button} from 'react-native';
 import { TouchableOpacity } from 'react-native';
+import axios from 'axios';
 
 export default function Home({ navigation }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('')
 
-    const registerPress = () => {
-        navigation.navigate('Register');
+    const signupPress = () => {
+        navigation.navigate('SignUp');
+        // navigation.goBack(); //option for a button that goes to the previous stack screen
     }
 
     const forgotPress = () => {
         navigation.navigate('ForgotPassword');
     }
+
+
+    const login = async () => {
+        try {
+            const response = await axios.post('http://10.35.195.217:3000/login', {
+                username: email,
+                password: password
+            });
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return (
         <View style={styles.container}>
@@ -45,11 +60,11 @@ export default function Home({ navigation }) {
 
         <TouchableOpacity>
             {/* <Text style={styles.forgot_button} onPress={() => navigation.navigate("Register")}>REGISTER</Text> */}
-            <Text style={styles.forgot_button} onPress={registerPress}>REGISTER</Text>
+            <Text style={styles.forgot_button} onPress={signupPress}>Sign Up</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.loginBtn}>
-            <Text style={styles.loginText}>LOGIN</Text>
+            <Text style={styles.loginText} onPress={login}>LOGIN</Text>
         </TouchableOpacity>
     </View>
     )
