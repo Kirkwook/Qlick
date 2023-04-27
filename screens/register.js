@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 
-export default function ReviewDetails() {
+export default function About() {
     return (
         <View style={styles.container}>
-            <Text>Review Details</Text>
+            <Text>Register Screen</Text>
         </View>
     )
 }

@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import {StyleSheet, View, Text, TextInput, Image} from 'react-native';
+import {StyleSheet, View, Text, TextInput, Image, Button} from 'react-native';
 import { TouchableOpacity } from 'react-native';
 
-export default function Home() {
+export default function Home({ navigation }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('')
+
+    const registerPress = () => {
+        navigation.navigate('Register');
+    }
+
+    const forgotPress = () => {
+        navigation.navigate('ForgotPassword');
+    }
+
     return (
         <View style={styles.container}>
             <Image source = {require("../assets/logo.png")}/>
@@ -31,7 +40,12 @@ export default function Home() {
         </View>
 
         <TouchableOpacity>
-            <Text style={styles.forgot_button}>Forgot Password?</Text>
+            <Text style={styles.forgot_button} onPress={forgotPress}>Forgot Password?</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+            {/* <Text style={styles.forgot_button} onPress={() => navigation.navigate("Register")}>REGISTER</Text> */}
+            <Text style={styles.forgot_button} onPress={registerPress}>REGISTER</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.loginBtn}>
@@ -84,39 +98,3 @@ const styles = StyleSheet.create({
         backgroundColor:"#FF1493",
     }
 });
-
-
-// export default function Home() {
-//     return (
-//         <View style={styles.container}>
-//             <StatusBar style="auto"/>
-//             <Text>Welcome to Qlick</Text>
-//             <div className='login-wrapper'>
-//                 <form>
-//                     <label>
-//                         <Text>Username</Text>
-//                         <input type='text'/>
-//                     </label>
-//                     <label>
-//                         <Text>Password</Text>
-//                         <input type='password'/>
-//                     </label>
-//                     <div>
-//                         <button type='submit'>
-//                             <Text>Submit</Text>
-//                         </button>
-//                     </div>
-//                 </form>
-//             </div>
-//         </View>
-        
-//     )
-// }
-// const styles = StyleSheet.create({
-//     container: {
-//       flex: 1,
-//       backgroundColor: '#fff',
-//       alignItems: 'center',
-//       justifyContent: 'center',
-//     },
-// });
