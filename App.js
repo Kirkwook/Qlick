@@ -1,6 +1,6 @@
 import React from 'react';
 // import Home from './screens/home';
-import Navigator from './routes/homeStack';
+import LoginStack from './routes/loginStack';
 
 import { StyleSheet, Text, View } from 'react-native';
 // import { useParams } from "react-router";
@@ -8,7 +8,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
-    <Navigator/>
+    <LoginStack/>
   );
 }
 
