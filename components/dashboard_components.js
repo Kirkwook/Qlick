@@ -25,6 +25,22 @@ export const handleSwitchToProfMode = () => {
   // as only internal user has this button
 };
 
+export const handleSwitchToAccountSettings = () => {
+  // Navigate to page
+};
+
+export const handleSwitchToCreateQuestionSet = () => {
+  // Navigate to page
+};
+
+export const handleSwitchToSessionManager = () => {
+  // Navigate to page
+};
+
+export const handleSwitchToResponseManager = () => {
+  // Navigate to page
+};
+
 export const handleSwitchToEnroll = () => {
   // Naviagte to enroll in a session screen
 };

@@ -5,12 +5,13 @@ import SignUp from '../screens/signup';
 import ForgotPassword from '../screens/forgotpassword';
 import InternalUserDashboard from '../screens/internal_dashboard'
 import StudentUserDashboard from '../screens/student_dashboard'
+import ProfessorUserDashboard from '../screens/professor_dashboard'
 
 const screens = {
-    Login: {
-        screen: Login,
+    ProfessorUserDashboard: {
+        screen: InternalUserDashboard,
         navigationOptions: {
-            title: 'Login',
+            title: 'ProfessorUserDashboard',
         }
     },
     SignUp: {
