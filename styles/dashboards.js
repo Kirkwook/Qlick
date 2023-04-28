@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const dashboardStyles = StyleSheet.create({
       buttonContainer: {
-        width: '85%',
+        width: '100%',
         height: '15%',
         paddingBottom: 20,
         alignItems: 'center',
@@ -20,7 +20,8 @@ export const dashboardStyles = StyleSheet.create({
         alignItems:"center",
         justifyContent:"center",
         backgroundColor:"#4499FF",
-    }
+    },
+
 });
 
 /*

@@ -1,27 +1,21 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, View, Image } from 'react-native';
+import { ImageBackground, View,  } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { dashboardStyles } from '../styles/dashboards';
 import { DashboardButtonContainer, handleSwitchToEnroll, handleSwitchToViewPastSessions } from '../components/dashboard_components.js'
 
 
 const StudentUserDashboard = () => {
-  
+
+  const backgroundImageSource = require("../assets/Qlick_Logo_CM.png");
+
   return (
-    <View style={globalStyles.backgroundImageContainer}>
-
-      <Image 
-            style={globalStyles.backgroundImage} 
-            source = {require("../assets/logo.png")} 
-            resizeMode="cover"/>
-
+    <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.4 }}>
       <View style={globalStyles.container}>
           <DashboardButtonContainer onPress={handleSwitchToEnroll} title="Enroll in a Session" />
           <DashboardButtonContainer onPress={handleSwitchToViewPastSessions} title="View Past Sessions" />
-
       </View>
-
-    </View>
+      </ImageBackground>
   );
 };
 

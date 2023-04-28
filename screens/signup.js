@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { ImageBackground, StyleSheet, View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { globalStyles } from '../styles/global';
 
 const RegisterAccount = () => {
@@ -15,88 +15,98 @@ const RegisterAccount = () => {
     // Handle registration logic and backend connection
   };
 
+  const backgroundImageSource = require("../assets/Qlick_Logo_CM.png");
+
   return (
-    // TouchableWithoutFeedback removes keyboard when tapping anywhere on screen
-    <TouchableWithoutFeedback
-      onPress={() => {
-        console.log("dismissed keyboard");
-        Keyboard.dismiss();
-      }}
-    >
-        <View style={globalStyles.container}>
-        <Text style={styles.title}>Registration</Text>
-        <TextInput
-            style={styles.input}
-            placeholder="First Name"
-            value={fName}
-            onChangeText={setFName}
-        />
-        <TextInput
-            style={styles.input}
-            placeholder="Last Name"
-            value={lName}
-            onChangeText={setLName}
-        />
-        <TextInput
-            style={styles.input}
-            placeholder="Email"
-            value={email}
-            onChangeText={setEmail}
-            keyboardType="email-address"
-            autoCapitalize="none"
-        />
-        <View style={styles.passwordContainer}>
-            <TextInput
-            style={styles.passwordInput}
-            placeholder="Password"
-            value={password1}
-            onChangeText={setPassword1}
-            secureTextEntry={!showPassword1}
-            />
-            <TouchableOpacity
-            style={styles.passwordToggle}
-            onPress={() => setShowPassword1(!showPassword1)}
-            >
-            <Text style={styles.passwordToggleText}>{showPassword1 ? 'Hide' : 'Show'}</Text>
+    <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
+      <TouchableWithoutFeedback
+        onPress={() => {
+          Keyboard.dismiss();
+        }}
+      >
+          <View style={globalStyles.container}>
+          <TextInput
+              style={styles.input}
+              placeholder="First Name"
+              placeholderTextColor="#FFF0F0"
+              value={fName}
+              onChangeText={setFName}
+          />
+          <TextInput
+              style={styles.input}
+              placeholder="Last Name"
+              placeholderTextColor="#FFF0F0"
+              value={lName}
+              onChangeText={setLName}
+          />
+          <TextInput
+              style={styles.input}
+              placeholder="Email"
+              placeholderTextColor="#FFF0F0"
+              value={email}
+              onChangeText={setEmail}
+              keyboardType="email-address"
+              autoCapitalize="none"
+          />
+          <View style={styles.passwordContainer}>
+              <TextInput
+              style={styles.passwordInput}
+              placeholder="Password"
+              placeholderTextColor="#FFF0F0"
+              value={password1}
+              onChangeText={setPassword1}
+              secureTextEntry={!showPassword1}
+              />
+              <TouchableOpacity
+              style={styles.passwordToggle}
+              onPress={() => setShowPassword1(!showPassword1)}
+              >
+              <Text style={styles.passwordToggleText}>{showPassword1 ? 'Hide' : 'Show'}</Text>
+              </TouchableOpacity>
+          </View>
+          <View style={styles.passwordContainer}>
+              <TextInput
+              style={styles.passwordInput}
+              placeholder="Confirm Password"
+              placeholderTextColor="#FFF0F0"
+              value={password2}
+              onChangeText={setPassword2}
+              secureTextEntry={!showPassword2}
+              />
+              <TouchableOpacity
+              style={styles.passwordToggle}
+              onPress={() => setShowPassword2(!showPassword2)}
+              >
+              <Text style={styles.passwordToggleText}>{showPassword2 ? 'Hide' : 'Show'}</Text>
+              </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity style={globalStyles.signUpButton}>
+              <Text style={globalStyles.loginText} onPress={handleRegister}>
+              Register
+              </Text>
             </TouchableOpacity>
-        </View>
-        <View style={styles.passwordContainer}>
-            <TextInput
-            style={styles.passwordInput}
-            placeholder="Confirm Password"
-            value={password2}
-            onChangeText={setPassword2}
-            secureTextEntry={!showPassword2}
-            />
-            <TouchableOpacity
-            style={styles.passwordToggle}
-            onPress={() => setShowPassword2(!showPassword2)}
-            >
-            <Text style={styles.passwordToggleText}>{showPassword2 ? 'Hide' : 'Show'}</Text>
-            </TouchableOpacity>
-        </View>
-        <TouchableOpacity style={styles.button} onPress={handleRegister}>
-            <Text style={styles.buttonText}>Register</Text>
-        </TouchableOpacity>
-        </View>
-    </TouchableWithoutFeedback>
+
+
+
+
+
+          </View>
+      </TouchableWithoutFeedback>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
   input: {
     width: '100%',
-    height: 40,
-    borderWidth: 1,
-    borderColor: '#ccc',
+    backgroundColor:"#A2B1C3",
+    color: "#FFFFFF",
+    height: 60,
     borderRadius: 5,
     paddingHorizontal: 10,
     marginBottom: 10,
+    fontSize: 18,
   },
   passwordContainer: {
     flexDirection: 'row',
@@ -104,12 +114,12 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   passwordInput: {
+    backgroundColor:"#A2B1C3",
     flex: 1,
-    height: 40,
-    borderWidth: 1,
-    borderColor: '#ccc',
+    height: 60,
     borderRadius: 5,
     paddingHorizontal: 10,
+    fontSize: 18,
   },
   passwordToggle: {
     marginLeft: 10,

@@ -6,123 +6,117 @@ import {
   Text,
   TextInput,
   Image,
-  Button,
   TouchableWithoutFeedback,
   Keyboard,
-  TouchableOpacity
+  TouchableOpacity,
+  ImageBackground,
 } from "react-native";
-import { globalStyles } from '../styles/global';
-import axios from 'axios';
+import { globalStyles } from "../styles/global";
+import axios from "axios";
+import { dashboardStyles } from '../styles/dashboards';
 
 export default function Home({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-    const signupPress = () => {
-        navigation.navigate('SignUp');
-        // navigation.goBack(); //option for a button that goes to the previous stack screen
-    }
+  const signupPress = () => {
+    navigation.navigate("SignUp");
+    // navigation.goBack(); //option for a button that goes to the previous stack screen
+  };
 
   const forgotPress = () => {
     navigation.navigate("ForgotPassword");
   };
 
+  const login = async () => {
+    try {
+      const response = await axios.post("http://10.35.195.217:3000/login", {
+        username: email,
+        password: password,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const backgroundImageSource = require("../assets/Qlick_Logo_CM.png");
 
-    const login = async () => {
-        try {
-            const response = await axios.post('http://10.35.195.217:3000/login', {
-                username: email,
-                password: password
-            });
-            console.log(response.data);
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    return (
-      // TouchableWithoutFeedback removes keyboard when tapping anywhere on screen
+  return (
+    
+    // TouchableWithoutFeedback removes keyboard when tapping anywhere on screen
+    
+    <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
       <TouchableWithoutFeedback
         onPress={() => {
-          console.log("dismissed keyboard");
           Keyboard.dismiss();
         }}
       >
-        <View style={globalStyles.container}>
-          <Image source={require("../assets/logo.png")} />
+        
+          <View style={globalStyles.container}>
+            <StatusBar style="auto" />
+            <View style={globalStyles.inputView}>
+              <TextInput
+                style={globalStyles.textInput}
+                placeholder="Email"
+                placeholderTextColor="#D0D0D0"
+                onChangeText={(email) => setEmail(email)}
+              />
+            </View>
 
-          <StatusBar style="auto" />
-        <View style={styles.inputView}>
-          <TextInput
-            style={styles.TextInput}
-            placeholder="Email"
-            placeholderTextColor="#003f5c"
-            onChangeText={(email) => setEmail(email)}
-          />
-        </View>
+            <View style={globalStyles.inputView}>
+              <TextInput
+                style={globalStyles.textInput}
+                placeholder="Password"
+                placeholderTextColor="#D0D0D0"
+                secureTextEntry={true}
+                onChangeText={(password) => setPassword(password)}
+              />
+            </View>
 
-        <View style={styles.inputView}>
-          <TextInput
-            style={styles.TextInput}
-            placeholder="Password"
-            placeholderTextColor="#003f5c"
-            secureTextEntry={true}
-            onChangeText={(password) => setPassword(password)}
-          />
-        </View>
+            <TouchableOpacity>
+              <Text style={styles.forgotPassswordButton} onPress={forgotPress}>
+                Forgot Password?
+              </Text>
+            </TouchableOpacity>
 
-        <TouchableOpacity>
-          <Text style={styles.forgot_button} onPress={forgotPress}>
-            Forgot Password?
-          </Text>
-        </TouchableOpacity>
 
-        <TouchableOpacity>
-            {/* <Text style={styles.forgot_button} onPress={() => navigation.navigate("Register")}>REGISTER</Text> */}
-            <Text style={styles.forgot_button} onPress={signupPress}>Sign Up</Text>
-        </TouchableOpacity>
 
-        <TouchableOpacity style={styles.loginBtn}>
-            <Text style={styles.loginText} onPress={login}>LOGIN</Text>
-        </TouchableOpacity>
-      </View>
-    </TouchableWithoutFeedback>
+            <TouchableOpacity style={styles.loginButton}>
+              <Text style={styles.loginText} onPress={login}>
+                Log In
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={globalStyles.signUpButton}>
+              <Text style={globalStyles.loginText} onPress={signupPress}>
+                Sign Up
+              </Text>
+            </TouchableOpacity>
+
+          </View>
+
+      </TouchableWithoutFeedback>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  image: {
-    marginBottom: 40,
-  },
 
-  inputView: {
-    backgroundColor: "#FFC0CB",
-    borderRadius: 30,
-    width: "70%",
-    height: 45,
-    marginBottom: 20,
-    alignItems: "center",
-  },
-
-  TextInput: {
-    height: 50,
-    flex: 1,
-    padding: 10,
-    marginLeft: 20,
-  },
-
-  forgot_button: {
-    height: 30,
+  forgotPassswordButton: {
+    height: 15,
     marginBottom: 30,
   },
 
-  loginBtn: {
-    width: "80%",
+  loginButton: {
+    width: "100%",
     borderRadius: 25,
-    height: 50,
+    height: "8%",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 40,
-    backgroundColor: "#FF1493",
+    margin: 10,
+
+    backgroundColor: "#79A0CF",
+    color: "#FFFFFF"
   },
+
 });
