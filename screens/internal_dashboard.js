@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 
 const InternalUserDashboard = () => {
     const [editingAccounts, setEditingAccounts] = useState(false);
@@ -30,6 +30,10 @@ const InternalUserDashboard = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.headerTitle}>Internal User Dashboard</Text>
+            <Image 
+              style={styles.backgroundImage} 
+              source = {require("../assets/logo.png")} 
+              resizeMode="cover"/>
             <ButtonContainer onPress={handleSwitchToStudentMode} title="Student Mode" />
             <ButtonContainer onPress={handleSwitchToProfMode} title="Professor Mode" />
             <ButtonContainer onPress={handleEditAccounts} title="Edit User Accounts" />
@@ -54,9 +58,22 @@ const ButtonContainer = ({ onPress, title }) => (
       backgroundColor: '#FFFFFF',
     },
     headerTitle: {
-      color: 'black',
-      paddingBottom: 50,
-      fontSize: 26
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 25,
+      color: '#FFFFFF',
+      backgroundColor: '#00000F',
+      padding: 15,
+      marginBottom: 50,
+      fontSize: 26,
+      overflow: 'hidden',
+    },
+    backgroundImage: {
+      flex: 1,
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      opacity: 0.2,
     },
     buttonContainer: {
       width: '80%',
