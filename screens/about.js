@@ -5,6 +5,7 @@ export default function About() {
     return (
         <View style={styles.container}>
             <Text>About Screen</Text>
+            <Text>More Text</Text>
         </View>
     )
 }
