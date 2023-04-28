@@ -1,3 +1,6 @@
+// MAY BE BETTER EDITING LOGIC THAN WHAT IS CURRENTLY SET!
+
+
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
