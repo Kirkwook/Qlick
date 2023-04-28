@@ -7,12 +7,13 @@ import InternalUserDashboard from '../screens/internal_dashboard'
 import StudentUserDashboard from '../screens/student_dashboard'
 import ProfessorUserDashboard from '../screens/professor_dashboard'
 import SessionManagerDashboard from '../screens/session_manager'
+import AccountEditingPage from '../screens/edit_account'
 
 const screens = {
-    SessionManagerDashboard: {
-        screen: SessionManagerDashboard,
+    AccountEditingPage: {
+        screen: AccountEditingPage,
         navigationOptions: {
-            title: 'SessionManagerDashboard',
+            title: 'AccountEditingPage',
         }
     },
     SignUp: {
