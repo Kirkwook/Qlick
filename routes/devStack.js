@@ -6,12 +6,13 @@ import ForgotPassword from '../screens/forgotpassword';
 import InternalUserDashboard from '../screens/internal_dashboard'
 import StudentUserDashboard from '../screens/student_dashboard'
 import ProfessorUserDashboard from '../screens/professor_dashboard'
+import SessionManagerDashboard from '../screens/session_manager'
 
 const screens = {
-    ProfessorUserDashboard: {
-        screen: InternalUserDashboard,
+    SessionManagerDashboard: {
+        screen: SessionManagerDashboard,
         navigationOptions: {
-            title: 'ProfessorUserDashboard',
+            title: 'SessionManagerDashboard',
         }
     },
     SignUp: {

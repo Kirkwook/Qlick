@@ -37,6 +37,14 @@ export const dashboardStyles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#4499FF",
   },
+  buttonTextGreen: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 75,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#5BA258",
+  },
 });
 
 /*
