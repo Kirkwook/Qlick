@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { ImageBackground, StyleSheet, View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import Checkbox from 'expo-checkbox';
 import { globalStyles } from '../styles/global';
 
 const RegisterAccount = () => {
+  const [isProfessor, setIsProfessor] = useState(false);
   const [fName, setFName] = useState('');
   const [lName, setLName] = useState('');
   const [email, setEmail] = useState('');
@@ -79,6 +81,19 @@ const RegisterAccount = () => {
               >
               <Text style={styles.passwordToggleText}>{showPassword2 ? 'Hide' : 'Show'}</Text>
               </TouchableOpacity>
+
+              
+
+          </View>
+
+          <View style={styles.passwordContainer}>
+          <Checkbox 
+              style={styles.checkbox}
+              value={isProfessor}
+              onValueChange={setIsProfessor}
+              // color={isChecked ? '#4630EB' : undefined}
+          />
+          <Text style={styles.passwordToggleText}>Are you registering as a professor?</Text>
           </View>
 
           <TouchableOpacity style={globalStyles.signUpButton}>
