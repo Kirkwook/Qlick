@@ -25,6 +25,22 @@ export const handleSwitchToProfMode = () => {
   // as only internal user has this button
 };
 
+export const handleSwitchToAccountSettings = () => {
+  // Navigate to page
+};
+
+export const handleSwitchToCreateQuestionSet = () => {
+  // Navigate to page
+};
+
+export const handleSwitchToSessionManager = () => {
+  // Navigate to page
+};
+
+export const handleSwitchToResponseManager = () => {
+  // Navigate to page
+};
+
 export const handleSwitchToEnroll = () => {
   // Naviagte to enroll in a session screen
 };
@@ -38,6 +54,14 @@ export const handleSwitchToViewPastSessions = () => {
 export const DashboardButtonContainer = ({ onPress, title }) => (
   <View style={dashboardStyles.buttonContainer}>
     <TouchableOpacity style={dashboardStyles.buttonText} onPress={onPress}>
+      <Text style={dashboardStyles.buttonTitle}>{title}</Text>
+    </TouchableOpacity>
+  </View>
+);
+
+export const DashboardButtonGreen = ({ onPress, title }) => (
+  <View style={dashboardStyles.buttonContainer}>
+    <TouchableOpacity style={dashboardStyles.buttonTextGreen} onPress={onPress}>
       <Text style={dashboardStyles.buttonTitle}>{title}</Text>
     </TouchableOpacity>
   </View>
