@@ -54,17 +54,17 @@ const styles = StyleSheet.create({
     },
 
     .exit {
-        padding - bottom: 20px,
+        padding - bottom: 20px
     }
 
     .exit button {
-        background: red,
+        background: #ff0000,
         text - align: center,
         height: 60px,
     }
 
     .prev button {
-        background: lightblue,
+        background: #00bfff,
         text - align: center,
         height: 60px,
         display: inline,
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     },
 
     .next button {
-        background: lightblue,
+        background: #00bfff,
         text - align: center,
         height: 60px,
         display: inline,
@@ -91,9 +91,9 @@ const styles = StyleSheet.create({
         display: inline - block,
         width: 100px,
         height: 52px,
-        background - color: greenyellow,
+        background - color: #bfff00,
         border - radius: 30px,
-        border: 2px solid gray,
+        border: 2px solid #808080,
     },
 
     /* After slide changes (closed mode) */
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
         width: 50px,
         height: 50px,
         border - radius: 25px,
-        background - color: gray,
+        background - color: #808080,
         top: 1px,
         left: 1px,
         transition: all 0.5s,
@@ -111,17 +111,17 @@ const styles = StyleSheet.create({
 
     /* Checkbox checked effect (circle object) */
     .checkbox: checked + .toggle::after {
-        left: 49px,
+        left: 49px
     },
 
     /* Checkbox checked toggle label bg color */
     .checkbox: checked + .toggle {
-        background - color: red,
+        background - color: #ff0000
     },
 
     /* Checkbox vanished */
     .checkbox {
-        display: none,
+        display: none
     },
 
     img {
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
-        background - color: red,
+        background - color: #ff0000,
         -webkit - transition: .4s,
         transition: .4s,
     },
@@ -152,13 +152,13 @@ const styles = StyleSheet.create({
         width: 26px,
         left: 4px,
         bottom: 4px,
-        background - color: white,
+        background - color: #ffffff,
         -webkit - transition: .4s,
         transition: .4s,
     },
 
     input: checked + .slider {
-        background - color: greenyellow,
+        background - color: #bfff00,
     },
 
     input: checked + .slider:before {
@@ -169,16 +169,16 @@ const styles = StyleSheet.create({
 
     /* Rounded sliders */
     .slider.round {
-        border - radius: 34px,
+        border - radius: 34px
     },
 
     .slider.round:before {
-        border - radius: 50 %,
+        border - radius: 50 %
     },
 
     .list {
         list - style - type: none,
-        paddi,ng: 0px
+        padding: 0px
     },
 
 });

@@ -65,7 +65,7 @@ li {
 },
 
 .exit button {
-    background: red,
+    background: #ff0000,
     text - align: center,
     height: 60px,
 },
@@ -80,9 +80,9 @@ li {
     display: inline - block,
     width: 100px,
     height: 52px,
-    background - color: greenyellow,
+    background - color: #bfff00,
     border - radius: 30px,
-    border: 2px solid gray,
+    border: 2px solid #808080,
 },
 
 /* After slide changes (closed mode) */
@@ -92,7 +92,7 @@ li {
     width: 50px,
     height: 50px,
     border - radius: 50 %,
-    background - color: gray,
+    background - color: #808080,
     top: 1px,
     left: 1px,
     transition: all 0.5s,
@@ -105,7 +105,7 @@ li {
 
 /* Checkbox checked toggle label bg color */
 .checkbox: checked + .toggle {
-    background - color: red,
+    background - color: #ff0000,
 },
 
 /* Checkbox vanished */
@@ -136,7 +136,7 @@ li {
     left: 0,
     right: 0,
     bottom: 0,
-    background - color: red,
+    background - color: #ff0000,
     -webkit - transition: .4s,
     transition: .4s,
 },
@@ -148,13 +148,13 @@ li {
     width: 26px,
     left: 4px,
     bottom: 4px,
-    background - color: white,
+    background - color: #ffffff,
     -webkit - transition: .4s,
     transition: .4s,
 },
 
 input: checked + .slider {
-    background - color: greenyellow,
+    background - color: #bfff00,
 },
 
 input: checked + .slider:before {
