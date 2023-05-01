@@ -12,7 +12,7 @@ import studentsQuizScreen from "../screens/studentQuizScreen";
 
 const screens = {
   studentsQuizScreen: {
-    screen: studentsQuizScreen,
+    screen: Login,
     navigationOptions: {
       title: "studentsQuizScreen",
     },
