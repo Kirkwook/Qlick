@@ -118,7 +118,7 @@ export default function Signup({ navigation }) {
   
             </View>
   
-            <View style={styles.passwordContainer}>
+            <View style={styles.checkboxContainer}>
             <Checkbox 
                 style={styles.checkbox}
                 value={isProfessor}
@@ -179,6 +179,14 @@ const styles = StyleSheet.create({
   passwordToggleText: {
     fontSize: 12,
     // fontWeight
+  },
+  checkboxContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 5,
+  },
+  checkbox: {
+    marginRight : 10,
   },
 });
 
