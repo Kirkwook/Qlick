@@ -44,6 +44,25 @@ export const globalStyles = StyleSheet.create({
       fontSize: 20,
       color: "#FFFFFF"
     },
+    inputViewEnroll: {
+      backgroundColor:"#E2E9F1",
+      borderRadius: 30,
+      width: "100%",
+      height:'15%',
+      marginBottom: 20,
+      alignItems: "center",
+      justifyContent: 'center',
+      opacity: .95,
+    },
+    textInputEnroll: {
+      flex: 1,
+      width: "80%",
+      fontSize: 48,
+      color: "#696969",
+      alignItems: "center",
+      justifyContent: 'center',
+      textAlign: 'center',
+    },
 });
 
 /*

@@ -41,8 +41,15 @@ export const handleSwitchToResponseManager = () => {
   // Navigate to page
 };
 
-export const handleSwitchToEnroll = () => {
-  // Naviagte to enroll in a session screen
+export const handleSwitchToEnroll = async () => {
+  try {
+    const response = await axios.post("http://10.35.195.217:3000/classCode", {
+      currentCode: code,
+    });
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const handleSwitchToViewPastSessions = () => {
@@ -66,5 +73,14 @@ export const DashboardButtonGreen = ({ onPress, title }) => (
     </TouchableOpacity>
   </View>
 );
+
+export const DashboardButtonEnroll = ({ onPress, title }) => (
+  <View style={dashboardStyles.buttonContainerEnroll}>
+    <TouchableOpacity style={dashboardStyles.buttonTextEnroll} onPress={onPress}>
+      <Text style={dashboardStyles.buttonTitle}>{title}</Text>
+    </TouchableOpacity>
+  </View>
+);
+
 
 // import { NAMEs }from '../components/dashboard_components.js'
