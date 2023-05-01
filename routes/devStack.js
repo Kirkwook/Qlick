@@ -11,10 +11,10 @@ import AccountEditingPage from "../screens/edit_account";
 import studentsQuizScreen from "../screens/studentQuizScreen";
 
 const screens = {
-  studentsQuizScreen: {
+  Login: {
     screen: Login,
     navigationOptions: {
-      title: "studentsQuizScreen",
+      title: "Login",
     },
   },
   SignUp: {

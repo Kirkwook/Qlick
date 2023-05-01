@@ -18,7 +18,6 @@ import { dashboardStyles } from '../styles/dashboards';
 export default function Home({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
 
   const signupPress = () => {
     navigation.navigate("SignUp");
@@ -33,9 +32,11 @@ export default function Home({ navigation }) {
     try {
       const response = await axios.post("http://10.35.195.217:3000/login", {
         username: email,
-        password: password,
+        password: password
       });
       
+      console.log(response.data);
+
       if (response.data){
         console.log('isProfessor true')
       }
@@ -70,28 +71,14 @@ export default function Home({ navigation }) {
               />
             </View>
 
-
-
-
-            <View style={globalStyles.passwordContainerLogin}>
-                <TextInput
-                style={globalStyles.passwordTextInputLogin}
+            <View style={globalStyles.inputView}>
+              <TextInput
+                style={globalStyles.textInput}
                 placeholder="Password"
                 placeholderTextColor="#D0D0D0"
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry={!showPassword}
-
-                // WAS OLDER CODE, AM NOT SURE IF IT IS USEFUL
-                // secureTextEntry={true}
-                // onChangeText={(password) => setPassword(password)}
-                />
-                <TouchableOpacity
-                style={globalStyles.passwordToggle}
-                onPress={() => setShowPassword(!showPassword)}
-                >
-                <Text style={globalStyles.passwordToggleText}>{showPassword ? 'Hide' : 'Show'}</Text>
-                </TouchableOpacity>
+                secureTextEntry={true}
+                onChangeText={(password) => setPassword(password)}
+              />
             </View>
 
             <TouchableOpacity>
@@ -102,14 +89,14 @@ export default function Home({ navigation }) {
 
 
 
-            <TouchableOpacity style={styles.loginButton}>
-              <Text style={globalStyles.loginText} onPress={login}>
+            <TouchableOpacity style={styles.loginButton}  onPress={login}>
+              <Text style={globalStyles.loginText}>
                 Log In
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={globalStyles.signUpButton}>
-              <Text style={globalStyles.loginText} onPress={signupPress}>
+            <TouchableOpacity style={globalStyles.signUpButton} onPress={signupPress}>
+              <Text style={globalStyles.loginText}>
                 Sign Up
               </Text>
             </TouchableOpacity>

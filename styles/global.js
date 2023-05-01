@@ -23,12 +23,6 @@ export const globalStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  textInput: {
-    flex: 1,
-    width: "80%",
-    fontSize: 24,
-    color: "#FFFFFF",
-  },
   signUpButton: {
     width: "100%",
     borderRadius: 25,
@@ -69,7 +63,8 @@ export const globalStyles = StyleSheet.create({
     },
     textInput: {
       flex: 1,
-      width: "80%",
+      width: "100%",
+      padding: 20,
       fontSize: 24,
       color: "#FFFFFF",
     },
@@ -142,7 +137,6 @@ export const globalStyles = StyleSheet.create({
     },
     passwordTextInputLogin: {
       flex: 1,
-      padding: "5%",
       fontSize: 24,
       color: "#FFFFFF",
     },
