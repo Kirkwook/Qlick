@@ -1,14 +1,14 @@
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
-import Login from '../screens/login';
+import Dashbaord from '../screens/student_dashboard';
 import SignUp from '../screens/signup';
 import ForgotPassword from '../screens/forgotpassword';
 
 const screens = {
-    Login: {
-        screen: Login,
+    Dashbaord: {
+        screen: Dashbaord,
         navigationOptions: {
-            title: 'Login',
+            title: 'Dashbaord',
         }
     },
     SignUp: {
@@ -28,7 +28,7 @@ const screens = {
 
 
 
-const LoginStack = createStackNavigator(screens, {
+const HomeStack = createStackNavigator(screens, {
     defaultNavigationOptions: {
         headerTintColor: '#444',
         headerStyle: { backgroundColor: '#eee'}
@@ -36,4 +36,4 @@ const LoginStack = createStackNavigator(screens, {
 });
 
 
-export default createAppContainer(LoginStack);
+export default createAppContainer(HomeStack);

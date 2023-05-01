@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { ImageBackground, TouchableOpacity, View, Image } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { dashboardStyles } from '../styles/dashboards';
-import { DashboardButtonContainer, handleSwitchToAccountSettings, handleEditAccounts, handleEditDatabase, handleSwitchToStudentMode, handleSwitchToProfMode } from '../components/dashboard_components.js'
+import { DashboardButtonContainer, handleSwitchToAccountSettings, handleEditAccounts, 
+  handleEditDatabase, handleSwitchToStudentMode, handleSwitchToProfMode } from '../components/dashboard_components.js'
 
 
 const InternalUserDashboard = () => {
