@@ -11,6 +11,7 @@ const AccountEditingPage = () => {
 
   const handleEdit = () => {
     // Handle editing logic and backend connection
+    // WILL BE SIMILAR TO SIGNUP PAGE LOGIC
   };
 
   const backgroundImageSource = require("../assets/Qlick_Logo_CM.png");
@@ -26,21 +27,30 @@ const AccountEditingPage = () => {
           <View style={styles.infoContainer}>
             <Text style={styles.infoText}>First Name:</Text>
             <Text style={styles.infoText}>{fName}</Text>
+            <TouchableOpacity style={styles.editButton} onPress={handleEdit}>
+              <Text style={styles.editButtonText}>Edit</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.infoContainer}>
             <Text style={styles.infoText}>Last Name:</Text>
             <Text style={styles.infoText}>{lName}</Text>
+            <TouchableOpacity style={styles.editButton} onPress={handleEdit}>
+              <Text style={styles.editButtonText}>Edit</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.infoContainer}>
             <Text style={styles.infoText}>Email:</Text>
             <Text style={styles.infoText}>{email}</Text>
+            <TouchableOpacity style={styles.editButton} onPress={handleEdit}>
+              <Text style={styles.editButtonText}>Edit</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.infoContainer}>
             <Text style={styles.infoText}>Password:</Text>
             <Text style={styles.infoText}>********</Text>
             <TouchableOpacity style={styles.editButton} onPress={handleEdit}>
-            <Text style={styles.editButtonText}>Edit</Text>
-          </TouchableOpacity>
+              <Text style={styles.editButtonText}>Edit</Text>
+            </TouchableOpacity>
           </View>
 
         </View>
@@ -55,6 +65,7 @@ const styles = StyleSheet.create({
     padding: 15,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: 10,
     backgroundColor: "#A2B1C3",
     borderRadius: 5,
