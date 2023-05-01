@@ -1,184 +1,117 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import {
-    StyleSheet,
-    View,
-    Text,
-    TextInput,
-    Image,
-    Button,
-    TouchableWithoutFeedback,
-    Keyboard,
-    TouchableOpacity
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  Image,
+  Button,
+  TouchableWithoutFeedback,
+  Keyboard,
+  TouchableOpacity,
 } from "react-native";
-import { globalStyles } from '../styles/global';
-import axios from 'axios';
+import axios from "axios";
 
+const ProfQuizScreen = () => {
+  const [isSwitchOn, setIsSwitchOn] = useState(false);
 
-const profQuizScreen = () => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.switchContainer}>
+        <TouchableOpacity onPress={() => setIsSwitchOn(!isSwitchOn)}>
+          <View
+            style={[styles.toggleSwitch, isSwitchOn && styles.toggleSwitchOn]}
+          />
+        </TouchableOpacity>
+      </View>
 
-    return (
-            <div class="switch">
-    <input type="checkbox" id="switch" class="checkbox" /input>
-    <label for="switch" class="toggle"></label>
-</div>
+      <View style={styles.exitContainer}>
+        <Button title="Exit question" onPress={() => {}} />
+      </View>
 
-<div class="exit">
-    <button type="submit">Exit question</button>
-</div>
+      <View style={styles.imgDivContainer}>
+        <Image
+          source={require("../assets/sampleQuestion2.png")}
+          style={styles.img}
+        />
+      </View>
 
-<div class="imgDiv">
-    <img id="sampleQ" src="sampleQuestion2.PNG" alt="Sample Question">
-</div>
-
-<div class="prev">
-    <button>Previous Question</button>
-</div>
-
-<div class="next">
-    <button>Next Question</button>
-</div>
-    );
+      <View style={styles.navContainer}>
+        <View style={styles.prevContainer}>
+          <Button title="Previous Question" onPress={() => {}} />
+        </View>
+        <View style={styles.nextContainer}>
+          <Button title="Next Question" onPress={() => {}} />
+        </View>
+      </View>
+    </View>
+  );
 };
 
-export default profQuizScreen;
+export default ProfQuizScreen;
 
 const styles = StyleSheet.create({
-    .q {
-    position: relative,
-    top: 60 %,
-    width: 95 %,
-    justify- content: center,
-    text - align: center,
-    display: inline - block,
-    },
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
-    .exit {
-        padding - bottom: 20px
-    }
+  switchContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+  },
 
-    .exit button {
-        background: #ff0000,
-        text - align: center,
-        height: 60px,
-    }
+  toggleSwitch: {
+    width: 100,
+    height: 52,
+    borderRadius: 30,
+    borderWidth: 2,
+    borderColor: "#808080",
+    backgroundColor: "#bfff00",
+  },
 
-    .prev button {
-        background: #00bfff,
-        text - align: center,
-        height: 60px,
-        display: inline,
-        float: left,
-    },
+  toggleSwitchOn: {
+    backgroundColor: "#ff0000",
+  },
 
-    .next button {
-        background: #00bfff,
-        text - align: center,
-        height: 60px,
-        display: inline,
-        float: right,
-    },
+  exitContainer: {
+    paddingBottom: 20,
+  },
 
-    .switch {
-        padding- left: 1100px,
-        width: 10px,
-        height: 10px,
-    },
+  imgDivContainer: {
+    paddingTop: 20,
+    paddingBottom: 10,
+  },
 
-    /* open mode */
-    .toggle {
-        position: relative,
-        display: inline - block,
-        width: 100px,
-        height: 52px,
-        background - color: #bfff00,
-        border - radius: 30px,
-        border: 2px solid #808080,
-    },
+  img: {
+    width: "50%",
+    alignSelf: "center",
+  },
 
-    /* After slide changes (closed mode) */
-    .toggle:after {
-        content: '',
-        position: absolute,
-        width: 50px,
-        height: 50px,
-        border - radius: 25px,
-        background - color: #808080,
-        top: 1px,
-        left: 1px,
-        transition: all 0.5s,
-    },
+  navContainer: {
+    flexDirection: "row",
+    width: "100%",
+    paddingHorizontal: 20,
+    justifyContent: "space-between",
+  },
 
-    /* Checkbox checked effect (circle object) */
-    .checkbox: checked + .toggle::after {
-        left: 49px
-    },
+  prevContainer: {
+    flex: 1,
+    marginRight: 10,
+    backgroundColor: "#00bfff",
+    height: 60,
+  },
 
-    /* Checkbox checked toggle label bg color */
-    .checkbox: checked + .toggle {
-        background - color: #ff0000
-    },
-
-    /* Checkbox vanished */
-    .checkbox {
-        display: none
-    },
-
-    img {
-        display: block,
-        margin - left: auto,
-        margin - right: auto,
-        width: 50 %,
-    },
-
-    /* The slider */
-    .slider {
-        position: absolute,
-        display: inline - block,
-        cursor: pointer,
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        background - color: #ff0000,
-        -webkit - transition: .4s,
-        transition: .4s,
-    },
-
-    .slider:before {
-        position: absolute,
-        content: "",
-        height: 26px,
-        width: 26px,
-        left: 4px,
-        bottom: 4px,
-        background - color: #ffffff,
-        -webkit - transition: .4s,
-        transition: .4s,
-    },
-
-    input: checked + .slider {
-        background - color: #bfff00,
-    },
-
-    input: checked + .slider:before {
-        -webkit - transform: translateX(26px),
-        -ms - transform: translateX(26px),
-        transform: translateX(26px),
-    },
-
-    /* Rounded sliders */
-    .slider.round {
-        border - radius: 34px
-    },
-
-    .slider.round:before {
-        border - radius: 50 %
-    },
-
-    .list {
-        list - style - type: none,
-        padding: 0px
-    },
-
+  nextContainer: {
+    flex: 1,
+    marginLeft: 10,
+    backgroundColor: "#00bfff",
+    height: 60,
+  },
 });
