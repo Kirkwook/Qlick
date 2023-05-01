@@ -41,8 +41,15 @@ export const handleSwitchToResponseManager = () => {
   // Navigate to page
 };
 
-export const handleSwitchToEnroll = () => {
-  // Naviagte to enroll in a session screen
+export const handleSwitchToEnroll = async () => {
+  try {
+    const response = await axios.post("http://10.35.195.217:3000/classCode", {
+      currentCode: code,
+    });
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const handleSwitchToViewPastSessions = () => {
