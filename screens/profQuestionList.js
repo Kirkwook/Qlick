@@ -1,175 +1,134 @@
-import React, { useState } from "react";
-import { StatusBar } from "expo-status-bar";
+import React from "react";
 import {
-    StyleSheet,
-    View,
-    Text,
-    TextInput,
-    Image,
-    Button,
-    TouchableWithoutFeedback,
-    Keyboard,
-    TouchableOpacity
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  Button,
+  TouchableOpacity,
 } from "react-native";
-import { globalStyles } from '../styles/global';
-import axios from 'axios';
+import axios from "axios";
 
+const ProfQuestionList = () => {
+  const [isSwitchOn, setIsSwitchOn] = React.useState(false);
 
-const profQuestionList = () => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.switch}>
+        <TouchableOpacity
+          onPress={() => setIsSwitchOn((prev) => !prev)}
+          style={[
+            styles.slider,
+            isSwitchOn ? styles.sliderOn : styles.sliderOff,
+          ]}
+        >
+          <View
+            style={[
+              styles.sliderButton,
+              isSwitchOn ? styles.sliderButtonOn : styles.sliderButtonOff,
+            ]}
+          />
+        </TouchableOpacity>
+      </View>
 
-    return (
-            <div class="switch">
-    <input type="checkbox" id="switch" class="checkbox" /input>
-    <label for="switch" class="toggle"></label>
-</div>
+      <View style={styles.exit}>
+        <Button title="Exit question" color="#ff0000" />
+      </View>
 
-<div class="exit">
-    <button type="submit">Exit question</button>
-</div>
+      <View style={styles.imgDiv}>
+        <Image
+          style={styles.sampleQ}
+          source={require("../assets/sampleQuestion2.PNG")}
+        />
+      </View>
 
-<div class="imgDiv">
-    <img id="sampleQ" src="sampleQuestion2.PNG" alt="Sample Question">
-</div>
+      <View style={styles.prev}>
+        <Button title="Previous Question" />
+      </View>
 
-<div class="prev">
-    <button>Previous Question</button>
-</div>
-
-<div class="next">
-    <button>Next Question</button>
-</div>
-    );
+      <View style={styles.next}>
+        <Button title="Next Question" />
+      </View>
+    </View>
+  );
 };
 
-export default profQuestionList;
+export default ProfQuestionList;
 
 const styles = StyleSheet.create({
-    .questionList {
-    position: relative,
-    width: 97 %,
-    display: inline - block,
-},
+  container: {
+    position: "relative",
+    width: "97%",
+    display: "inline-block",
+  },
 
-.list {
-    list- style - type: none,
-padding: 0px,
-},
+  exit: {
+    paddingBottom: 20,
+  },
 
-li {
-    border - bottom - style: solid,
-    padding - bottom: 5 %,
-},
+  exitButton: {
+    textAlign: "center",
+    height: 60,
+  },
 
-.exit {
-    padding - bottom: 20px,
-},
+  switch: {
+    position: "absolute",
+    top: 10,
+    right: 10,
+  },
 
-.exit button {
-    background: #ff0000,
-    text - align: center,
-    height: 60px,
-},
+  slider: {
+    position: "relative",
+    display: "inline-block",
+    width: 60,
+    height: 34,
+    borderRadius: 34,
+    backgroundColor: "#ff0000",
+    transition: ".4s",
+  },
 
-.switch {
-    float: right,
-},
+  sliderOn: {
+    backgroundColor: "#bfff00",
+  },
 
-    /* open mode */
-.toggle {
-    position: relative,
-    display: inline - block,
-    width: 100px,
-    height: 52px,
-    background - color: #bfff00,
-    border - radius: 30px,
-    border: 2px solid #808080,
-},
+  sliderOff: {
+    backgroundColor: "#808080",
+  },
 
-/* After slide changes (closed mode) */
-.toggle:after {
-    content: '',
-    position: absolute,
-    width: 50px,
-    height: 50px,
-    border - radius: 50 %,
-    background - color: #808080,
-    top: 1px,
-    left: 1px,
-    transition: all 0.5s,
-},
+  sliderButton: {
+    position: "absolute",
+    height: 26,
+    width: 26,
+    bottom: 4,
+    borderRadius: 50,
+    backgroundColor: "#ffffff",
+    transition: ".4s",
+  },
 
-/* Checkbox checked effect (circle object) */
-.checkbox: checked + .toggle::after {
-    left: 49px,
-},
+  sliderButtonOn: {
+    transform: [{ translateX: 26 }],
+  },
 
-/* Checkbox checked toggle label bg color */
-.checkbox: checked + .toggle {
-    background - color: #ff0000,
-},
+  sliderButtonOff: {
+    transform: [{ translateX: 0 }],
+  },
 
-/* Checkbox vanished */
-.checkbox {
-    display: none,
-},
+  imgDiv: {
+    alignItems: "center",
+    paddingBottom: 10,
+  },
 
-.switch {
-    position: relative,
-    display: inline - block,
-    width: 60px,
-    height: 34px,
-},
+  sampleQ: {
+    width: "100%",
+    height: 200,
+    resizeMode: "contain",
+  },
 
-    /* Hide default HTML checkbox */
-.switch input {
-    opacity: 0,
-    width: 0,
-    height: 0,
-},
+  prev: {
+    paddingBottom: 10,
+  },
 
-/* The slider */
-.slider {
-    position: absolute,
-    display: inline - block,
-    cursor: pointer,
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    background - color: #ff0000,
-    -webkit - transition: .4s,
-    transition: .4s,
-},
-
-.slider:before {
-    position: absolute,
-    content: "",
-    height: 26px,
-    width: 26px,
-    left: 4px,
-    bottom: 4px,
-    background - color: #ffffff,
-    -webkit - transition: .4s,
-    transition: .4s,
-},
-
-input: checked + .slider {
-    background - color: #bfff00,
-},
-
-input: checked + .slider:before {
-    -webkit - transform: translateX(26px),
-    -ms - transform: translateX(26px),
-    transform: translateX(26px),
-},
-
-/* Rounded sliders */
-.slider.round {
-    border - radius: 34px,
-},
-
-.slider.round:before {
-    border - radius: 50 %,
-},
-
+  next: {
+    paddingBottom: 10,
+  },
 });
