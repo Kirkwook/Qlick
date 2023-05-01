@@ -45,6 +45,22 @@ export const dashboardStyles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#5BA258",
   },
+  buttonContainerEnroll: {
+    width: "100%",
+    height: "12%",
+    paddingBottom: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "hidden",
+  },
+  buttonTextEnroll: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 75,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#5BA258",
+  },
 });
 
 /*

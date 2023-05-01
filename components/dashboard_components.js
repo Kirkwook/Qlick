@@ -67,4 +67,13 @@ export const DashboardButtonGreen = ({ onPress, title }) => (
   </View>
 );
 
+export const DashboardButtonEnroll = ({ onPress, title }) => (
+  <View style={dashboardStyles.buttonContainerEnroll}>
+    <TouchableOpacity style={dashboardStyles.buttonTextEnroll} onPress={onPress}>
+      <Text style={dashboardStyles.buttonTitle}>{title}</Text>
+    </TouchableOpacity>
+  </View>
+);
+
+
 // import { NAMEs }from '../components/dashboard_components.js'
