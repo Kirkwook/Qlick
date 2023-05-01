@@ -128,8 +128,8 @@ export default function Signup({ navigation }) {
             <Text style={styles.passwordToggleText}>Are you registering as a professor?</Text>
             </View>
   
-            <TouchableOpacity style={globalStyles.signUpButton}>
-                <Text style={globalStyles.loginText} onPress={signup}>
+            <TouchableOpacity style={globalStyles.signUpButton} onPress={signup}>
+                <Text style={globalStyles.loginText}>
                 Register
                 </Text>
               </TouchableOpacity>
