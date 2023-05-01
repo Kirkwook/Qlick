@@ -82,9 +82,9 @@ export default function Signup({ navigation }) {
                 keyboardType="email-address"
                 autoCapitalize="none"
             />
-            <View style={styles.passwordContainer}>
+            <View style={globalStyles.passwordContainer}>
                 <TextInput
-                style={styles.passwordInput}
+                style={globalStyles.passwordInput}
                 placeholder="Password"
                 placeholderTextColor="#FFF0F0"
                 value={password1}
@@ -92,15 +92,15 @@ export default function Signup({ navigation }) {
                 secureTextEntry={!showPassword1}
                 />
                 <TouchableOpacity
-                style={styles.passwordToggle}
+                style={globalStyles.passwordToggle}
                 onPress={() => setShowPassword1(!showPassword1)}
                 >
-                <Text style={styles.passwordToggleText}>{showPassword1 ? 'Hide' : 'Show'}</Text>
+                <Text style={globalStyles.passwordToggleText}>{showPassword1 ? 'Hide' : 'Show'}</Text>
                 </TouchableOpacity>
             </View>
-            <View style={styles.passwordContainer}>
+            <View style={globalStyles.passwordContainer}>
                 <TextInput
-                style={styles.passwordInput}
+                style={globalStyles.passwordInput}
                 placeholder="Confirm Password"
                 placeholderTextColor="#FFF0F0"
                 value={password2}
@@ -108,10 +108,10 @@ export default function Signup({ navigation }) {
                 secureTextEntry={!showPassword2}
                 />
                 <TouchableOpacity
-                style={styles.passwordToggle}
+                style={globalStyles.passwordToggle}
                 onPress={() => setShowPassword2(!showPassword2)}
                 >
-                <Text style={styles.passwordToggleText}>{showPassword2 ? 'Hide' : 'Show'}</Text>
+                <Text style={globalStyles.passwordToggleText}>{showPassword2 ? 'Hide' : 'Show'}</Text>
                 </TouchableOpacity>
   
                 
@@ -133,11 +133,7 @@ export default function Signup({ navigation }) {
                 Register
                 </Text>
               </TouchableOpacity>
-  
-  
-  
-  
-  
+
             </View>
         </TouchableWithoutFeedback>
       </ImageBackground>
@@ -156,29 +152,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 10,
     fontSize: 18,
-  },
-  passwordContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  passwordInput: {
-    backgroundColor:"#A2B1C3",
-    flex: 1,
-    height: 60,
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    fontSize: 18,
-  },
-  passwordToggle: {
-    marginLeft: 10,
-    padding: 10,
-    backgroundColor: '#ccc',
-    borderRadius: 5,
-  },
-  passwordToggleText: {
-    fontSize: 12,
-    // fontWeight
   },
   checkboxContainer: {
     flexDirection: 'row',

@@ -18,6 +18,7 @@ import { dashboardStyles } from '../styles/dashboards';
 export default function Home({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const signupPress = () => {
     navigation.navigate("SignUp");
@@ -69,14 +70,28 @@ export default function Home({ navigation }) {
               />
             </View>
 
-            <View style={globalStyles.inputView}>
-              <TextInput
-                style={globalStyles.textInput}
+
+
+
+            <View style={globalStyles.passwordContainerLogin}>
+                <TextInput
+                style={globalStyles.passwordTextInputLogin}
                 placeholder="Password"
                 placeholderTextColor="#D0D0D0"
-                secureTextEntry={true}
-                onChangeText={(password) => setPassword(password)}
-              />
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry={!showPassword}
+
+                // WAS OLDER CODE, AM NOT SURE IF IT IS USEFUL
+                // secureTextEntry={true}
+                // onChangeText={(password) => setPassword(password)}
+                />
+                <TouchableOpacity
+                style={globalStyles.passwordToggle}
+                onPress={() => setShowPassword(!showPassword)}
+                >
+                <Text style={globalStyles.passwordToggleText}>{showPassword ? 'Hide' : 'Show'}</Text>
+                </TouchableOpacity>
             </View>
 
             <TouchableOpacity>
@@ -88,7 +103,7 @@ export default function Home({ navigation }) {
 
 
             <TouchableOpacity style={styles.loginButton}>
-              <Text style={styles.loginText} onPress={login}>
+              <Text style={globalStyles.loginText} onPress={login}>
                 Log In
               </Text>
             </TouchableOpacity>
