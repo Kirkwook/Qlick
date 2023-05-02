@@ -14,6 +14,7 @@ import {
 import { globalStyles } from "../styles/global";
 import axios from "axios";
 import { dashboardStyles } from '../styles/dashboards';
+import { NavigationActions } from 'react-navigation';
 
 export default function Home({ navigation }) {
   const [email, setEmail] = useState("");
@@ -38,10 +39,12 @@ export default function Home({ navigation }) {
       console.log(response.data);
 
       if (response.data){
-        console.log('isProfessor true')
+        console.log("Is professor")
+        navigation.navigate("ProfessorUserDashboard")
       }
       else {
-        
+        navigation.navigate("StudentUserDashboard")
+        console.log("Is NOT professor")
       }
     } catch (error) {
       console.error(error);
