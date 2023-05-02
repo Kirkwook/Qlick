@@ -34,7 +34,13 @@ export default function Home({ navigation }) {
         username: email,
         password: password,
       });
-      console.log(response.data);
+      
+      if (response.data){
+        console.log('isProfessor true')
+      }
+      else {
+        
+      }
     } catch (error) {
       console.error(error);
     }
