@@ -1,0 +1,33 @@
+{
+  "quiz_id": 1,
+  "title": "History Quiz",
+  "creator_id": 123,
+  "questions": [
+    {
+      "question_id": 1,
+      "image_path": "../assets/sampleQuestion2.PNG",
+      "question_text": "In what year did Christopher Columbus first reach the Americas?",
+      "options": ["1492", "1501", "1607", "1776"],
+      "correct_index": 0
+    },
+    {
+      "question_id": 2,
+      "image_path": "",
+      "question_text": "Who was the first President of the United States?",
+      "options": [
+        "George Washington",
+        "John Adams",
+        "Thomas Jefferson",
+        "Abraham Lincoln"
+      ],
+      "correct_index": 0
+    },
+    {
+      "question_id": 3,
+      "image_path": "../assets/sampleQuestion2.PNG",
+      "question_text": "What kind of animals is this",
+      "options": ["Goat", "Horse", "Sheep", "Dog"],
+      "correct_index": 3
+    }
+  ]
+}

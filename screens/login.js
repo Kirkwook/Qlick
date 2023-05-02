@@ -14,6 +14,7 @@ import {
 import { globalStyles } from "../styles/global";
 import axios from "axios";
 import { dashboardStyles } from '../styles/dashboards';
+import { NavigationActions } from 'react-navigation';
 
 export default function Home({ navigation }) {
   const [email, setEmail] = useState("");
@@ -32,14 +33,18 @@ export default function Home({ navigation }) {
     try {
       const response = await axios.post("http://10.35.195.217:3000/login", {
         username: email,
-        password: password,
+        password: password
       });
       
+      console.log(response.data);
+
       if (response.data){
-        console.log('isProfessor true')
+        console.log("Is professor")
+        navigation.navigate("ProfessorUserDashboard")
       }
       else {
-        
+        navigation.navigate("StudentUserDashboard")
+        console.log("Is NOT professor")
       }
     } catch (error) {
       console.error(error);
@@ -87,14 +92,14 @@ export default function Home({ navigation }) {
 
 
 
-            <TouchableOpacity style={styles.loginButton}>
-              <Text style={styles.loginText} onPress={login}>
+            <TouchableOpacity style={styles.loginButton}  onPress={login}>
+              <Text style={globalStyles.loginText}>
                 Log In
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={globalStyles.signUpButton}>
-              <Text style={globalStyles.loginText} onPress={signupPress}>
+            <TouchableOpacity style={globalStyles.signUpButton} onPress={signupPress}>
+              <Text style={globalStyles.loginText}>
                 Sign Up
               </Text>
             </TouchableOpacity>
@@ -120,7 +125,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     margin: 10,
-
     backgroundColor: "#79A0CF",
     color: "#FFFFFF"
   },
