@@ -10,6 +10,7 @@ import {
   Keyboard,
   TouchableOpacity,
   ImageBackground,
+  ScrollView
 } from "react-native";
 import { globalStyles } from "../styles/global";
 import axios from "axios";
@@ -54,16 +55,11 @@ export default function Home({ navigation }) {
 
   return (
     
-    // TouchableWithoutFeedback removes keyboard when tapping anywhere on screen
+    // Use ScrollViews with 'KeyboardShouldPersistTaps='handled'' to close the keyboard by tapping anywhere
     
     <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
-      <TouchableWithoutFeedback
-        onPress={() => {
-          Keyboard.dismiss();
-        }}
-      >
         
-          <View style={globalStyles.container}>
+          <ScrollView contentContainerStyle={globalStyles.container} KeyboardShouldPersistTaps='handled'>
             <StatusBar style="auto" />
             <View style={globalStyles.inputView}>
               <TextInput
@@ -90,8 +86,6 @@ export default function Home({ navigation }) {
               </Text>
             </TouchableOpacity>
 
-
-
             <TouchableOpacity style={styles.loginButton}  onPress={login}>
               <Text style={globalStyles.loginText}>
                 Log In
@@ -104,9 +98,8 @@ export default function Home({ navigation }) {
               </Text>
             </TouchableOpacity>
 
-          </View>
+          </ScrollView>
 
-      </TouchableWithoutFeedback>
     </ImageBackground>
   );
 }
