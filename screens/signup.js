@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ImageBackground, StyleSheet, View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
+import { ImageBackground, StyleSheet, View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Alert, ScrollView} from 'react-native';
 import Checkbox from 'expo-checkbox';
 import axios from "axios";
 import { globalStyles } from '../styles/global';
@@ -61,7 +61,7 @@ export default function Signup({ navigation }) {
   
     return (
       <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
-            <View style={globalStyles.container}>
+            <ScrollView contentContainerStyle={globalStyles.container} KeyboardShouldPersistTaps='handled'>
             <TextInput
                 style={styles.input}
                 placeholder="First Name"
@@ -116,9 +116,6 @@ export default function Signup({ navigation }) {
                 >
                 <Text style={globalStyles.passwordToggleText}>{showPassword2 ? 'Hide' : 'Show'}</Text>
                 </TouchableOpacity>
-  
-                
-  
             </View>
   
             <View style={styles.checkboxContainer}>
@@ -137,7 +134,7 @@ export default function Signup({ navigation }) {
                 </Text>
               </TouchableOpacity>
 
-            </View>
+            </ScrollView>
       </ImageBackground>
     );
   // };
