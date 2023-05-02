@@ -116,15 +116,20 @@ const styles = StyleSheet.create({
   forgotPassswordButton: {
     height: 15,
     marginBottom: 30,
+    height: 20,
+    marginBottom: "auto",
+    alignItems: "center",
   },
 
   loginButton: {
+    maxWidth: 600,
     width: "100%",
     borderRadius: 25,
     height: "8%",
     alignItems: "center",
     justifyContent: "center",
     margin: 10,
+    minHeight: 30,
     backgroundColor: "#79A0CF",
     color: "#FFFFFF"
   },

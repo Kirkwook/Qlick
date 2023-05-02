@@ -18,6 +18,8 @@ export const dashboardStyles = StyleSheet.create({
     opacity: 1,
   },
   buttonContainer: {
+    minHeight: 50,
+    maxWidth: 600,
     width: "100%",
     height: "15%",
     paddingBottom: 20,
@@ -46,8 +48,9 @@ export const dashboardStyles = StyleSheet.create({
     backgroundColor: "#5BA258",
   },
   buttonContainerEnroll: {
+    maxWidth: 800,
     width: "100%",
-    height: "12%",
+    height: "15%",
     paddingBottom: 20,
     alignItems: "center",
     justifyContent: "center",
