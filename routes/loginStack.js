@@ -42,15 +42,11 @@ const screens = {
 
 }
 
-
-
-
 const LoginStack = createStackNavigator(screens, {
     defaultNavigationOptions: {
         headerTintColor: '#444',
         headerStyle: { backgroundColor: '#eee'}
     }
 });
-
 
 export default createAppContainer(LoginStack);
