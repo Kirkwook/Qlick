@@ -3,6 +3,8 @@ import { createAppContainer } from "react-navigation";
 import Login from '../screens/login';
 import SignUp from '../screens/signup';
 import ForgotPassword from '../screens/forgotpassword';
+import StudentUserDashboard from "../screens/student_dashboard";
+import ProfessorUserDashboard from "../screens/professor_dashboard";
 
 const screens = {
     Login: {
@@ -22,7 +24,22 @@ const screens = {
         navigationOptions: {
             title: 'Forgot Password?',
         }
+    },
+    StudentUserDashboard: {
+        screen: StudentUserDashboard,
+        navigationOptions: {
+            title: 'Qlick Home',
+            headerLeft: ()=> null
+        }
+    },
+    ProfessorUserDashboard: {
+        screen: ProfessorUserDashboard,
+        navigationOptions: {
+            title: 'Professor Home',
+            headerLeft: ()=> null
+        }
     }
+
 }
 
 

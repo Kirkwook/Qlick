@@ -38,6 +38,14 @@ export default function Signup({ navigation }) {
           console.error(error);
         }
       }
+      else if(fName.length == 0 || lName == 0 || email == 0 || password1 == 0 || password2 == 0) { ////////////////////NEED TO FIX
+        Alert.alert('There is an empty field. Please enter all information and try again. ', [
+          {
+            text: 'OK',
+            onPress: () => console.log('OK Pressed')
+          }
+        ]);
+      }
       else{
         Alert.alert('Passwords Don\'t Match', 'The passwords do not match. Please try again. ', [
           {
