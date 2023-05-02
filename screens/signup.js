@@ -61,11 +61,6 @@ export default function Signup({ navigation }) {
   
     return (
       <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
-        <TouchableWithoutFeedback
-          onPress={() => {
-            Keyboard.dismiss();
-          }}
-        >
             <View style={globalStyles.container}>
             <TextInput
                 style={styles.input}
@@ -143,7 +138,6 @@ export default function Signup({ navigation }) {
               </TouchableOpacity>
 
             </View>
-        </TouchableWithoutFeedback>
       </ImageBackground>
     );
   // };
@@ -153,6 +147,8 @@ export default function Signup({ navigation }) {
 const styles = StyleSheet.create({
   input: {
     width: '100%',
+    maxWidth: 600,
+    minHeight: 30,
     backgroundColor:"#A2B1C3",
     color: "#FFFFFF",
     height: 60,
