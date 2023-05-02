@@ -8,13 +8,13 @@ import StudentUserDashboard from "../screens/student_dashboard";
 import ProfessorUserDashboard from "../screens/professor_dashboard";
 import SessionManagerDashboard from "../screens/session_manager";
 import AccountEditingPage from "../screens/edit_account";
-import studentsQuizScreen from "../screens/studentQuizScreen";
+import studentQuizScreen from "../screens/studentQuizScreen";
 
 const screens = {
-  studentsQuizScreen: {
-    screen: studentsQuizScreen,
+  studentQuizScreen: {
+    screen: studentQuizScreen,
     navigationOptions: {
-      title: "studentsQuizScreen",
+      title: "studentQuizScreen",
     },
   },
   SignUp: {

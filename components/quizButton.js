@@ -14,6 +14,33 @@ const CustomButton = ({ textLeft, textRight, onPress }) => {
   );
 };
 
+const answerLabels = ["A)", "B)", "C)", "D)", "E)"];
+const answerOptions = [
+  "answer 1",
+  "answer 2",
+  "answer 3",
+  "answer 4",
+  "answer 5",
+];
+
+function makeAnswerButton(item, index) {
+  return (
+    <View key={index}>
+      <CustomButton
+        textLeft={answerLabels[index]}
+        textRight={item}
+        onPress={handleButtonPress}
+      />
+    </View>
+  );
+}
+
+function renderAnswerButtons() {
+  return answerOptions.map(makeAnswerButton);
+}
+
+return <View>{renderAnswerButtons()}</View>;
+
 const styles = StyleSheet.create({
   button: {
     backgroundColor: "#00bfff",
