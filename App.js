@@ -1,10 +1,7 @@
 import React from 'react';
 // import Home from './screens/home';
 // import { NavigationContainer } from '@react-navigation/native';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import LoginStack from './routes/loginStack';
-import StudentStack from './routes/studentStack';
-import ProfessorStack from './routes/professorStack';
 import DevStack from './routes/devStack';
 
 import { StyleSheet, Text, View } from 'react-native';
