@@ -4,73 +4,66 @@ import {
   StyleSheet,
   View,
   Text,
-  TextInput,
   Image,
   Button,
   TouchableWithoutFeedback,
   Keyboard,
   TouchableOpacity,
+  FlatList,
 } from "react-native";
 import { globalStyles } from "../styles/global";
 import axios from "axios";
 
 const StudentQuizScreen = () => {
+  const handleButtonPress = () => {
+    console.log("Button pressed!");
+  };
+
+  const qImage = require("../assets/Qlick_Logo_CM.png");
   return (
-    <View style={globalStyles.container}>
-      <View style={styles.exit}>
-        <Button title="Exit quiz" />
-      </View>
-      <View style={styles.imgDiv}>
-        <Image
-          source={require("../assets/Qlick_Logo_CM.png")}
-          style={styles.image}
-        />
+    <View style={styles.container}>
+      <View>
+        <View style={styles.imgDiv}>
+          <Image source={qImage} style={styles.image} />
+        </View>
+
+        {/* These are the navigation buttons for the previous and next questions */}
+        <View style={styles.qNav}>
+          <TouchableOpacity style={styles.leftButton}>
+            <Text style={styles.buttonText}>Previous Question</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.rightButton}>
+            <Text style={styles.buttonText}>Next Question</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View>
+          <Text style={styles.qText}>Which Answer is the best Answer?</Text>
+        </View>
+        {/* Answer options section of page */}
+        <View style={styles.answerOptions}>
+          <TouchableOpacity style={styles.answerOption}>
+            <Text style={styles.optionText}>A) Answer 1</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.answerOption}>
+            <Text style={styles.optionText}>B) Answer 2</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.answerOption}>
+            <Text style={styles.optionText}>C) Answer 3</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.answerOption}>
+            <Text style={styles.optionText}>D) Answer 4</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.answerOption}>
+            <Text style={styles.optionText}>E) Answer 5</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
-      <View style={styles.prev}>
-        <Button title="Previous Question" />
-      </View>
-      <View style={styles.next}>
-        <Button title="Next Question" />
-      </View>
-
-      <View style={styles.questionContainer}>
-        <Text style={styles.qtitle}>Question 1</Text>
-        <View style={styles.radio}>
-          <TextInput
-            name="test"
-            type="radio"
-            value="inc"
-            style={styles.radioBtn}
-          />
-          <Text style={styles.radioText}>A) 1</Text>
-        </View>
-        <View style={styles.radio}>
-          <TextInput
-            name="test"
-            type="radio"
-            value="ans"
-            style={styles.radioBtn}
-          />
-          <Text style={styles.radioText}>B) 2</Text>
-        </View>
-        <View style={styles.radio}>
-          <TextInput
-            name="test"
-            type="radio"
-            value="inc"
-            style={styles.radioBtn}
-          />
-          <Text style={styles.radioText}>C) 3</Text>
-        </View>
-        <View style={styles.radio}>
-          <TextInput
-            name="test"
-            type="radio"
-            value="inc"
-            style={styles.radioBtn}
-          />
-          <Text style={styles.radioText}>D) 4</Text>
+      {/* TODO Make exit button show up */}
+      <View>
+        <View style={styles.exit}>
+          <Button title="Exit quiz" />
         </View>
       </View>
     </View>
@@ -80,19 +73,25 @@ const StudentQuizScreen = () => {
 export default StudentQuizScreen;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    padding: 20,
+    opacity: 1,
+  },
   exit: {
     paddingBottom: 20,
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "center",
   },
-  exitBtn: {
-    textAlign: "center",
-    height: 60,
-    backgroundColor: "#ff0000",
-  },
+
   imgDiv: {
     paddingTop: 20,
   },
   image: {
-    width: "50%",
+    width: "100%",
     height: "auto",
     resizeMode: "contain",
   },
@@ -107,39 +106,96 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingBottom: 10,
   },
-  radio: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginVertical: 5,
-  },
-  radioBtn: {
-    height: 20,
-    width: 20,
-    marginRight: 10,
-    borderRadius: 10,
-    borderColor: "blue",
-    borderWidth: 2,
-  },
-  radioText: {
-    fontSize: 16,
-  },
-  prev: {
-    backgroundColor: "#00bfff",
+  // Styling the Question text
+  qText: {
+    fontSize: 22,
+    fontWeight: "bold",
     textAlign: "center",
-    height: 60,
-    display: "flex",
+  },
+  // These three style the area for the answer options
+  answerOptions: {
+    flex: 1,
+    flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center",
-    width: "50%",
-    position: "absolute",
-    left: 0,
-    bottom: 0,
+    alignItems: "stretch",
   },
-  next: {
-    backgroundColor: "#00bfff",
+  answerOption: {
+    backgroundColor: "lightblue",
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+  optionText: {
+    color: "darkblue",
+    fontSize: 16,
+    fontWeight: "bold",
     textAlign: "center",
-    height: 60,
-    display: "flex",
-    alignSelf: "flex-end",
+  },
+  // The styling code below styles the previous and next buttons for the
+  // Student quiz navigation bar
+  qNav: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: 10,
+  },
+  leftButton: {
+    backgroundColor: "#00bfff",
+    padding: 10,
+    borderRadius: 5,
+    marginRight: 10,
+  },
+  rightButton: {
+    backgroundColor: "#00bfff",
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: "#00008b",
+    fontSize: 16,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
+
+// Bunch a useless shit
+{
+  /* <View style={styles.questionContainer}>
+<Text style={styles.qtitle}>Question 1</Text>
+<View style={styles.radio}>
+  <TextInput
+    name="test"
+    type="radio"
+    value="inc"
+    style={styles.radioBtn}
+  />
+  <Text style={styles.radioText}>A) 1</Text>
+</View>
+<View style={styles.radio}>
+  <TextInput
+    name="test"
+    type="radio"
+    value="ans"
+    style={styles.radioBtn}
+  />
+  <Text style={styles.radioText}>B) 2</Text>
+</View>
+<View style={styles.radio}>
+  <TextInput
+    name="test"
+    type="radio"
+    value="inc"
+    style={styles.radioBtn}
+  />
+  <Text style={styles.radioText}>C) 3</Text>
+</View>
+<View style={styles.radio}>
+  <TextInput
+    name="test"
+    type="radio"
+    value="inc"
+    style={styles.radioBtn}
+  />
+  <Text style={styles.radioText}>D) 4</Text>
+</View>
+</View> */
+}
