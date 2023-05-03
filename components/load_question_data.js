@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
-import { QuestionLoader } from "../components/question_components";
-import { BasicQuestionDisplay } from "../screens/basic_question_display";
+import { QuestionLoader, BasicQuestionDisplay } from "../components/question_components";
 
 
 class QuizPageSingle extends Component {
