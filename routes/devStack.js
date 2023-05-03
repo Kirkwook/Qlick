@@ -9,13 +9,14 @@ import ProfessorUserDashboard from "../screens/professor_dashboard";
 import SessionManagerDashboard from "../screens/session_manager";
 import AccountEditingPage from "../screens/edit_account";
 import studentsQuizScreen from "../screens/studentQuizScreen";
+
 import BasicDisplayTest from "../screens/basic_question_display"
 
 const screens = {
   Login: {
     screen: BasicDisplayTest,
     navigationOptions: {
-      title: "Login",
+      title: "studentQuizScreen",
     },
   },
   SignUp: {
