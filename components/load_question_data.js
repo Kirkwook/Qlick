@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 import imagePath from "../assets/Qlick_Logo_CM.png";
-import { QuestionLoader, BasicQuestionDisplay } from "../components/question_components";
-
-
+import { QuestionLoader } from "../components/question_components";
+import { BasicQuestionDisplay } from "../screens/basic_question_display";
 
 class QuizPageSingle extends Component {
   constructor(props) {

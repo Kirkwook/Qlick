@@ -9,12 +9,11 @@ import ProfessorUserDashboard from "../screens/professor_dashboard";
 import SessionManagerDashboard from "../screens/session_manager";
 import AccountEditingPage from "../screens/edit_account";
 import studentsQuizScreen from "../screens/studentQuizScreen";
-import QuizPage from "../screens/display_questions_test";
-import QuizPageDB from "../screens/display_questions_DB";
+import BasicDisplayTest from "../screens/basic_question_display"
 
 const screens = {
   Login: {
-    screen: QuizPageDB,
+    screen: BasicDisplayTest,
     navigationOptions: {
       title: "Login",
     },
