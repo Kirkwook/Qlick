@@ -7,12 +7,11 @@ import {
   Image,
   Button,
   TouchableWithoutFeedback,
-  Keyboard,
   TouchableOpacity,
   FlatList,
 } from "react-native";
 import { globalStyles } from "../styles/global";
-import axios from "axios";
+import AnswerOption from "../components/quizButton";
 
 const StudentQuizScreen = () => {
   const handleButtonPress = () => {
@@ -42,7 +41,18 @@ const StudentQuizScreen = () => {
         </View>
         {/* Answer options section of page */}
         <View style={styles.answerOptions}>
-          <TouchableOpacity style={styles.answerOption}>
+          {/* <AnswerOption letter={"A"} option={"Answer 1"}></AnswerOption>
+          <AnswerOption letter={"B"} option={"Answer 2"}></AnswerOption>
+          <AnswerOption letter={"C"} option={"Answer 3"}></AnswerOption>
+          <AnswerOption letter={"D"} option={"Answer 4"}></AnswerOption>
+          <AnswerOption letter={"E"} option={"Answer 5"}></AnswerOption> */}
+
+          <AnswerOption letter="A" option="Answer 1"></AnswerOption>
+          <AnswerOption letter="B" option="Answer 2"></AnswerOption>
+          <AnswerOption letter="C" option="Answer 3"></AnswerOption>
+          <AnswerOption letter="D" option="Answer 4"></AnswerOption>
+          <AnswerOption letter="E" option="Answer 5"></AnswerOption>
+          {/* <TouchableOpacity style={styles.answerOption}>
             <Text style={styles.optionText}>A) Answer 1</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.answerOption}>
@@ -56,7 +66,7 @@ const StudentQuizScreen = () => {
           </TouchableOpacity>
           <TouchableOpacity style={styles.answerOption}>
             <Text style={styles.optionText}>E) Answer 5</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </View>
 
@@ -119,18 +129,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "stretch",
   },
-  answerOption: {
-    backgroundColor: "lightblue",
-    padding: 10,
-    borderRadius: 5,
-    marginBottom: 10,
-  },
-  optionText: {
-    color: "darkblue",
-    fontSize: 16,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
+
+  // answerOption: {
+  //   backgroundColor: "lightblue",
+  //   padding: 10,
+  //   borderRadius: 5,
+  //   marginBottom: 10,
+  // },
+  // optionText: {
+  //   color: "darkblue",
+  //   fontSize: 16,
+  //   fontWeight: "bold",
+  //   textAlign: "center",
+  // },
   // The styling code below styles the previous and next buttons for the
   // Student quiz navigation bar
   qNav: {
@@ -156,46 +167,3 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
-
-// Bunch a useless shit
-{
-  /* <View style={styles.questionContainer}>
-<Text style={styles.qtitle}>Question 1</Text>
-<View style={styles.radio}>
-  <TextInput
-    name="test"
-    type="radio"
-    value="inc"
-    style={styles.radioBtn}
-  />
-  <Text style={styles.radioText}>A) 1</Text>
-</View>
-<View style={styles.radio}>
-  <TextInput
-    name="test"
-    type="radio"
-    value="ans"
-    style={styles.radioBtn}
-  />
-  <Text style={styles.radioText}>B) 2</Text>
-</View>
-<View style={styles.radio}>
-  <TextInput
-    name="test"
-    type="radio"
-    value="inc"
-    style={styles.radioBtn}
-  />
-  <Text style={styles.radioText}>C) 3</Text>
-</View>
-<View style={styles.radio}>
-  <TextInput
-    name="test"
-    type="radio"
-    value="inc"
-    style={styles.radioBtn}
-  />
-  <Text style={styles.radioText}>D) 4</Text>
-</View>
-</View> */
-}

@@ -1,16 +1,13 @@
-import React from 'react';
+import React from "react";
 // import Home from './screens/home';
 // import { NavigationContainer } from '@react-navigation/native';
-import LoginStack from './routes/loginStack';
-import DevStack from './routes/devStack';
+import LoginStack from "./routes/loginStack";
+import DevStack from "./routes/devStack";
 
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from "react-native";
 
 export default function App() {
-  return (
-    <LoginStack/>
-    
-  );
+  return <DevStack />;
 }
 
 // const AppNavigator = createSwitchNavigator({
@@ -25,12 +22,11 @@ export default function App() {
 // const AppContainer = createAppContainer(AppNavigator);
 // export default AppContainer;
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

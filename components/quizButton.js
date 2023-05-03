@@ -1,66 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 // This is going to return the button to the student Quiz file
 // It takes in the textLeft --> which is a letter like A)
 // It takes in the textRight --> which is the answer option
 // The on press would be the function/action to take
-const CustomButton = ({ textLeft, textRight, onPress }) => {
+const AnswerOption = ({ letter, option }) => {
+  const [selected, setSelected] = useState(false);
+
   return (
-    <TouchableOpacity onPress={onPress} style={styles.button}>
-      <Text style={styles.leftText}>{textLeft}</Text>
-      <Text style={styles.rightText}>{textRight}</Text>
+    <TouchableOpacity onPress={() => setSelected(!selected)}>
+      <View style={[styles.answerOption, selected && styles.optionSelected]}>
+        <Text style={styles.letter}>{letter})</Text>
+        <Text style={styles.option}>{option}</Text>
+      </View>
     </TouchableOpacity>
   );
 };
 
-const answerLabels = ["A)", "B)", "C)", "D)", "E)"];
-const answerOptions = [
-  "answer 1",
-  "answer 2",
-  "answer 3",
-  "answer 4",
-  "answer 5",
-];
-
-function makeAnswerButton(item, index) {
-  return (
-    <View key={index}>
-      <CustomButton
-        textLeft={answerLabels[index]}
-        textRight={item}
-        onPress={handleButtonPress}
-      />
-    </View>
-  );
-}
-
-function renderAnswerButtons() {
-  return answerOptions.map(makeAnswerButton);
-}
-
-return <View>{renderAnswerButtons()}</View>;
+export default AnswerOption;
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "#00bfff",
-    height: 60,
+  answerOption: {
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 20,
+    padding: 10,
+    borderWidth: 1,
     borderRadius: 10,
+    borderColor: "light-blue",
+    marginBottom: 10,
   },
-  leftText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "left",
+  optionSelected: {
+    borderColor: "black",
+    shadowColor: "#black",
+    shadowOffset: { width: -2, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
   },
-  rightText: {
-    fontSize: 18,
-    fontWeight: "bold",
+  letter: {
+    flex: 1,
+  },
+  option: {
+    flex: 2,
     textAlign: "center",
   },
 });
-
-export default CustomButton;

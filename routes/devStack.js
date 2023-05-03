@@ -11,12 +11,14 @@ import AccountEditingPage from "../screens/edit_account";
 import studentsQuizScreen from "../screens/studentQuizScreen";
 import QuizPage from "../screens/display_questions_test";
 import QuizPageDB from "../screens/display_questions_DB";
+// import StudentQuizScreen from "../screens/studentQuizScreen";
+import StudentQuizScreen from "../screens/studentQuizScreen";
 
 const screens = {
-  Login: {
-    screen: QuizPageDB,
+  StudentQuizScreen: {
+    screen: StudentQuizScreen,
     navigationOptions: {
-      title: "Login",
+      title: "studentQuizScreen",
     },
   },
   SignUp: {
