@@ -1,46 +1,9 @@
 import { StyleSheet } from "react-native";
 
 export const globalStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
-    opacity: 1,
-  },
-  backgroundImage: {
-    flex: 1,
-    width: "100%",
-    height: "100%",
-    position: "absolute",
-  },
-  inputView: {
-    backgroundColor: "#2B609F",
-    borderRadius: 30,
-    width: "100%",
-    height: "10%",
-    marginBottom: 20,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  signUpButton: {
-    width: "100%",
-    borderRadius: 25,
-    height: "6%",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: "50%",
-    margin: 10,
-    backgroundColor: "#A6C0DF",
-    color: "#FFFFFF",
-  },
-  loginText: {
-    fontSize: 20,
-    color: "#000000",
-  },
-
     container: {
-      flex: 1,
+      flexDirection: "column",
+      flexGrow: 1,
       justifyContent: 'center',
       alignItems: 'center',
       padding: 20,
@@ -57,11 +20,14 @@ export const globalStyles = StyleSheet.create({
       borderRadius: 30,
       width: "100%",
       height:'10%',
+      minHeight: 40,
+      maxWidth: 600,
       marginBottom: 20,
       alignItems: "center",
       justifyContent: 'center',
     },
     textInput: {
+      maxWidth: 600,
       flex: 1,
       width: "100%",
       padding: 20,
@@ -69,12 +35,14 @@ export const globalStyles = StyleSheet.create({
       color: "#FFFFFF",
     },
     signUpButton:{
+      minHeight: 30,
       width: "100%",
       borderRadius: 25,
       height: "6%",
       alignItems: "center",
       justifyContent: "center",
-      marginTop: "50%",
+      maxWidth: 600,
+      marginTop: "auto",
       margin: 10,
       backgroundColor: "#A6C0DF",
       color: "#FFFFFF"
@@ -84,6 +52,7 @@ export const globalStyles = StyleSheet.create({
       color: "#FFFFFF"
     },
     inputViewEnroll: {
+      maxWidth: 800,
       backgroundColor:"#E2E9F1",
       borderRadius: 30,
       width: "100%",

@@ -10,6 +10,7 @@ import {
   Keyboard,
   TouchableOpacity,
   ImageBackground,
+  ScrollView
 } from "react-native";
 import { globalStyles } from "../styles/global";
 import axios from "axios";
@@ -35,8 +36,6 @@ export default function Home({ navigation }) {
         username: email,
         password: password
       });
-      
-      console.log(response.data);
 
       if (response.data){
         console.log("Is professor")
@@ -54,16 +53,11 @@ export default function Home({ navigation }) {
 
   return (
     
-    // TouchableWithoutFeedback removes keyboard when tapping anywhere on screen
+    // Use ScrollViews with 'KeyboardShouldPersistTaps='handled'' to close the keyboard by tapping anywhere
     
     <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
-      <TouchableWithoutFeedback
-        onPress={() => {
-          Keyboard.dismiss();
-        }}
-      >
         
-          <View style={globalStyles.container}>
+          <ScrollView contentContainerStyle={globalStyles.container} KeyboardShouldPersistTaps='handled'>
             <StatusBar style="auto" />
             <View style={globalStyles.inputView}>
               <TextInput
@@ -90,8 +84,6 @@ export default function Home({ navigation }) {
               </Text>
             </TouchableOpacity>
 
-
-
             <TouchableOpacity style={styles.loginButton}  onPress={login}>
               <Text style={globalStyles.loginText}>
                 Log In
@@ -104,9 +96,8 @@ export default function Home({ navigation }) {
               </Text>
             </TouchableOpacity>
 
-          </View>
+          </ScrollView>
 
-      </TouchableWithoutFeedback>
     </ImageBackground>
   );
 }
@@ -116,15 +107,20 @@ const styles = StyleSheet.create({
   forgotPassswordButton: {
     height: 15,
     marginBottom: 30,
+    height: 20,
+    marginBottom: "auto",
+    alignItems: "center",
   },
 
   loginButton: {
+    maxWidth: 600,
     width: "100%",
     borderRadius: 25,
     height: "8%",
     alignItems: "center",
     justifyContent: "center",
     margin: 10,
+    minHeight: 30,
     backgroundColor: "#79A0CF",
     color: "#FFFFFF"
   },

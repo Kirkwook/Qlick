@@ -61,6 +61,7 @@ const AccountEditingPage = () => {
 
 const styles = StyleSheet.create({
   infoContainer: {
+    maxWidth : 800,
     width: '100%',
     padding: 15,
     flexDirection: 'row',

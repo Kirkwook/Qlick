@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ImageBackground, StyleSheet, View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
+import { ImageBackground, StyleSheet, View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Alert, ScrollView} from 'react-native';
 import Checkbox from 'expo-checkbox';
 import axios from "axios";
 import { globalStyles } from '../styles/global';
@@ -61,12 +61,7 @@ export default function Signup({ navigation }) {
   
     return (
       <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
-        <TouchableWithoutFeedback
-          onPress={() => {
-            Keyboard.dismiss();
-          }}
-        >
-            <View style={globalStyles.container}>
+            <ScrollView contentContainerStyle={globalStyles.container} KeyboardShouldPersistTaps='handled'>
             <TextInput
                 style={styles.input}
                 placeholder="First Name"
@@ -121,9 +116,6 @@ export default function Signup({ navigation }) {
                 >
                 <Text style={globalStyles.passwordToggleText}>{showPassword2 ? 'Hide' : 'Show'}</Text>
                 </TouchableOpacity>
-  
-                
-  
             </View>
   
             <View style={styles.checkboxContainer}>
@@ -142,8 +134,7 @@ export default function Signup({ navigation }) {
                 </Text>
               </TouchableOpacity>
 
-            </View>
-        </TouchableWithoutFeedback>
+            </ScrollView>
       </ImageBackground>
     );
   // };
@@ -153,6 +144,8 @@ export default function Signup({ navigation }) {
 const styles = StyleSheet.create({
   input: {
     width: '100%',
+    maxWidth: 600,
+    minHeight: 30,
     backgroundColor:"#A2B1C3",
     color: "#FFFFFF",
     height: 60,

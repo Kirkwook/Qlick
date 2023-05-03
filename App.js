@@ -7,7 +7,12 @@ import DevStack from "./routes/devStack";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function App() {
-  return <DevStack />;
+
+  return (
+    <DevStack/>
+    
+  );
+
 }
 
 // const AppNavigator = createSwitchNavigator({

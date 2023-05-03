@@ -14,8 +14,6 @@ const questionLoader = async () => {
       }
     );
 
-    console.log(response.data);
-
     if (response.data) {
       console.log(response.data);
       return response;
@@ -26,11 +24,21 @@ const questionLoader = async () => {
 };
 
 class QuizPageDB extends Component {
-  render() {
-    data = questionLoader();
-    console.log(data);
+  constructor(props) {
+    super(props);
+    this.state = {
+      questions: [],
+    };
+  }
 
-    const { questions } = data;
+  async componentDidMount() {
+    const response = await questionLoader();
+    const questions = response.data.questions;
+    this.setState({ questions });
+  }
+
+  render() {
+    const { questions } = this.state;
     return (
       <View>
         {questions.map((question, index) => (
