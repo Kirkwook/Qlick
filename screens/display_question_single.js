@@ -1,28 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
-// import data from '../test_data/test_question_set.json'
+import { View, Text } from "react-native";
 import imagePath from "../assets/Qlick_Logo_CM.png";
-import axios from "axios";
+import { QuestionLoader, BasicQuestionDisplay } from "../components/question_components";
 
-const questionLoader = async () => {
-  try {
-    const response = await axios.post(
-      "http://10.35.195.217:3000/questionLoader",
-      {
-        quiz_id: 1,
-        creator_id: 123,
-      }
-    );
 
-    console.log("response data:", response.data);
-
-    if (response.data) {
-      return response;
-    }
-  } catch (error) {
-    console.error(error);
-  }
-};
 
 class QuizPageSingle extends Component {
   constructor(props) {
@@ -35,9 +16,9 @@ class QuizPageSingle extends Component {
 
   // Awaits promise made by render
   async componentDidMount() {
-    const response = await questionLoader();
+    const response = await QuestionLoader();
     const questions = response.data.questions;
-    console.log("did componentDidMount questions:", questions);
+    console.log("Questions logged!");
     this.setState({ questions });
   }
 
@@ -51,34 +32,42 @@ class QuizPageSingle extends Component {
 
 
   // Renders the page to display loaded JSON one at a time
-  render() {
+  // DOES THIS NEED THE LOADING LOGIC OR JUST THE RENDER?
+  renderBasicQuestionDisplay = () => {
+
     const { questions, questionIndex } = this.state;
     const question = questions[questionIndex];
 
-    
-    console.log("question1:", questions[0]);
-    console.log("question2:", questions[1]);
-    console.log("question3:", questions[2]);
+    return (
+      <View>
+          <BasicQuestionDisplay
+            questionIndex={questionIndex}
+            question={question}
+            onNextQuestion={this.handleNextQuestion}
+          />
+      </View>
+    );
+  }
+
+
+  // Renders the desired page
+  render() {
+    const { displayType } = this.props;
+
+    const { questions, questionIndex } = this.state;
+    const question = questions[questionIndex];
 
     return (
-        // Check for length before rendering. Throws an error if not loaded instantly (impossible)
       <View>
         {questions.length > 0 ? (
         <View>
-            <Text>Question {questionIndex + 1}</Text>
-            <Text>{question.question_text}</Text>
-            {question.image_path && <Image source={{ uri: question.image_path }} />}
-
-            {question.options.map((option, i) => (
-            <Text key={i}>{option}</Text>
-            ))}
-
-            <TouchableOpacity onPress={this.handleNextQuestion}>
-            <Text>Next Question</Text>
-            </TouchableOpacity>
+            {displayType === "basic" && this.renderBasicQuestionDisplay()}
+            {displayType === "quiz" && this.renderQuizDisplay()}
+            {displayType === "edit" && this.renderEditDisplay()}
+            {displayType === "preview" && this.renderPreviewDisplay()}
         </View>
         ) : (
-        <Text>Loading Question</Text>
+        <Text>Loading Question...</Text>
         )}
       </View>
     );
