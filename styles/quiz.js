@@ -19,14 +19,14 @@ export const quizStyles = StyleSheet.create({
     paddingTop: 20,
   },
   image: {
-    width: "100%",
-    height: "auto",
-    resizeMode: "contain",
+    // width: "100%", 
+    flex: 1,
+    margin: 5,
   },
 
   // Styling the Question text
   qTop: {
-    flex: 2,
+    flex: 4,
     height: 50,
     backgroundColor: "lightblue",
   },
@@ -35,11 +35,13 @@ export const quizStyles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
     textAlign: "center",
+    margin: 5,
   },
   qTitle: {
     fontSize: 26,
     fontWeight: "bold",
     textAlign: "center",
+    margin: 5,
   },
   // These three style the area for the answer options
   answerOptions: {
