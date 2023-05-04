@@ -11,9 +11,9 @@ import {
   FlatList,
 } from "react-native";
 import { globalStyles } from "../styles/global";
-import AnswerOption from "../components/quizButton";
+import AnswerOption from "../components/answerOption";
 
-const StudentQuizScreen = () => {
+const QuizScreen = ({ questionIndex, question, onNextQuestion }) => {
   const handleButtonPress = () => {
     console.log("Button pressed!");
   };
@@ -41,32 +41,11 @@ const StudentQuizScreen = () => {
         </View>
         {/* Answer options section of page */}
         <View style={styles.answerOptions}>
-          {/* <AnswerOption letter={"A"} option={"Answer 1"}></AnswerOption>
-          <AnswerOption letter={"B"} option={"Answer 2"}></AnswerOption>
-          <AnswerOption letter={"C"} option={"Answer 3"}></AnswerOption>
-          <AnswerOption letter={"D"} option={"Answer 4"}></AnswerOption>
-          <AnswerOption letter={"E"} option={"Answer 5"}></AnswerOption> */}
-
           <AnswerOption letter="A" option="Answer 1"></AnswerOption>
           <AnswerOption letter="B" option="Answer 2"></AnswerOption>
           <AnswerOption letter="C" option="Answer 3"></AnswerOption>
           <AnswerOption letter="D" option="Answer 4"></AnswerOption>
           <AnswerOption letter="E" option="Answer 5"></AnswerOption>
-          {/* <TouchableOpacity style={styles.answerOption}>
-            <Text style={styles.optionText}>A) Answer 1</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.answerOption}>
-            <Text style={styles.optionText}>B) Answer 2</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.answerOption}>
-            <Text style={styles.optionText}>C) Answer 3</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.answerOption}>
-            <Text style={styles.optionText}>D) Answer 4</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.answerOption}>
-            <Text style={styles.optionText}>E) Answer 5</Text>
-          </TouchableOpacity> */}
         </View>
       </View>
 
@@ -80,7 +59,7 @@ const StudentQuizScreen = () => {
   );
 };
 
-export default StudentQuizScreen;
+export default QuizScreen;
 
 const styles = StyleSheet.create({
   container: {
