@@ -5,12 +5,17 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 // It takes in the textLeft --> which is a letter like A)
 // It takes in the textRight --> which is the answer option
 // The on press would be the function/action to take
-export const AnswerOption = ({ letter, option }) => {
-  const [selected, setSelected] = useState(false);
+export const AnswerOption = ({ letter, option, index, selected, onPress }) => {
+  const setSelected = useState(false);
 
+  const handlePress = () => {
+    onPress(index);
+  };
   return (
-    <TouchableOpacity onPress={() => setSelected(!selected)}>
-      <View style={[styles.answerOption, selected && styles.optionSelected]}>
+    <TouchableOpacity key={option.id} onPress={handlePress}>
+      <View
+        style={[styles.answerOption, selected && quizStyles.optionSelected]}
+      >
         <Text style={styles.letter}>{letter})</Text>
         <Text style={styles.option}>{option}</Text>
       </View>
@@ -20,7 +25,7 @@ export const AnswerOption = ({ letter, option }) => {
 
 const styles = StyleSheet.create({
   answerOption: {
-    height: 40,
+    height: 50,
     flexDirection: "row",
     alignItems: "center",
     padding: 10,
@@ -30,13 +35,7 @@ const styles = StyleSheet.create({
     borderColor: "light-blue",
     marginBottom: 10,
   },
-  optionSelected: {
-    borderColor: "purple",
-    shadowColor: "black",
-    shadowOffset: { width: 4, height: -4 },
-    shadowOpacity: 0.5,
-    shadowRadius: 3,
-  },
+
   letter: {
     flex: 1,
   },

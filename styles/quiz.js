@@ -4,7 +4,6 @@ export const quizStyles = StyleSheet.create({
   container: {
     justifyContent: "flex-start",
     alignItems: "center",
-    padding: 10,
     opacity: 1,
     width: "100%",
   },
@@ -15,9 +14,6 @@ export const quizStyles = StyleSheet.create({
     alignItems: "center",
   },
 
-  imgDiv: {
-    paddingTop: 20,
-  },
   image: {
     // width: "100%", 
     flex: 1,
@@ -50,7 +46,12 @@ export const quizStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "stretch",
     padding: 10,
-    backgroundColor: "pink", //Get rid of this when done
+    backgroundColor: "white", //Get rid of this when done
+  },
+
+  optionSelected: {
+    borderColor: "purple",
+    backgroundColor: "lightblue",
   },
 
   // The styling code below styles the previous and next buttons for the
@@ -63,11 +64,11 @@ export const quizStyles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     padding: 10,
-    backgroundColor: "green", // get rid of this when done
+    backgroundColor: "lightgray", // get rid of this when done
   },
   prevButton: {
     flex: 1,
-    backgroundColor: "#00bfff",
+    backgroundColor: "lightblue",
     padding: 10,
     borderRadius: 5,
     marginRight: 10,
@@ -77,7 +78,7 @@ export const quizStyles = StyleSheet.create({
   },
   nextButton: {
     flex: 1,
-    backgroundColor: "#00bfff",
+    backgroundColor: "lightblue",
     padding: 10,
     borderRadius: 5,
     height: "40%",

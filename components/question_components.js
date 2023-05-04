@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -62,7 +62,15 @@ export const QuizDisplay = ({
   onNextQuestion,
   onPrevQuestion,
 }) => {
+  const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const letters = ["A", "B", "C", "D", "E"];
+
+  const handleAnswerOptionPress = (questionIndex, optionIndex) => {
+    // Reset the selected state of all the answer options except the one that was just selected
+    setCurrentQuestionIndex(questionIndex);
+    console.log(questionIndex);
+  };
 
   return (
     <View style={quizStyles.container}>
@@ -84,6 +92,9 @@ export const QuizDisplay = ({
               key={i}
               letter={letters[i]}
               option={option}
+              index={i}
+              select={selectedAnswerIndex === i}
+              onPress={handleAnswerOptionPress}
             ></AnswerOption>
           ))}
         </View>
@@ -95,13 +106,17 @@ export const QuizDisplay = ({
             style={quizStyles.prevButton}
             onPress={onPrevQuestion}
           >
-            <Text style={quizStyles.buttonText}>Previous</Text>
+            <Text style={quizStyles.buttonText}>
+              &#x3C;&#x2D;&#x2D; Previous &#x2D;&#x2D;
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={quizStyles.nextButton}
             onPress={onNextQuestion}
           >
-            <Text style={quizStyles.buttonText}>Next</Text>
+            <Text style={quizStyles.buttonText}>
+              &#x2D;&#x2D; Next &#x2D;&#x2D;&#x3E;
+            </Text>
           </TouchableOpacity>
         </View>
 
