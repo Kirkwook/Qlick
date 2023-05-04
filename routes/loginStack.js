@@ -5,6 +5,7 @@ import SignUp from '../screens/signup';
 import ForgotPassword from '../screens/forgotpassword';
 import StudentUserDashboard from "../screens/student_dashboard";
 import ProfessorUserDashboard from "../screens/professor_dashboard";
+import QuizCreator from "../screens/quiz_creator";
 
 const screens = {
     Login: {
@@ -38,8 +39,14 @@ const screens = {
             title: 'Professor Home',
             headerLeft: ()=> null
         }
+    },
+    QuizCreator: {
+        screen: QuizCreator,
+        navigationOptions: {
+            title: 'Quiz Maker',
+            headerLeft: ()=> null
+        }
     }
-
 }
 
 const LoginStack = createStackNavigator(screens, {
