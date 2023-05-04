@@ -56,14 +56,19 @@ export const BasicQuestionDisplay = ({
   );
 };
 
-export const QuizDisplay = ({ questionIndex, question, onNextQuestion }) => {
+export const QuizDisplay = ({
+  questionIndex,
+  question,
+  onNextQuestion,
+  onPrevQuestion,
+}) => {
   const letters = ["A", "B", "C", "D", "E"];
 
   return (
     <View style={quizStyles.container}>
       <View>
         {/* This is where the title and question info are located */}
-        <View style={{ height: 50 }}>
+        <View style={quizStyles.qTop}>
           <Text style={quizStyles.qTitle}>Question {questionIndex + 1}</Text>
           <Text style={quizStyles.qText}>{question.question_text}</Text>
           <Image
@@ -86,11 +91,14 @@ export const QuizDisplay = ({ questionIndex, question, onNextQuestion }) => {
         {/* These are the navigation buttons for the previous and next questions */}
         {/* TODO Add functionality for previous question button */}
         <View style={quizStyles.qNav}>
-          <TouchableOpacity style={quizStyles.leftButton}>
+          <TouchableOpacity
+            style={quizStyles.prevButton}
+            onPress={onPrevQuestion}
+          >
             <Text style={quizStyles.buttonText}>Previous</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={quizStyles.rightButton}
+            style={quizStyles.nextButton}
             onPress={onNextQuestion}
           >
             <Text style={quizStyles.buttonText}>Next</Text>
@@ -98,10 +106,10 @@ export const QuizDisplay = ({ questionIndex, question, onNextQuestion }) => {
         </View>
 
         {/* TODO Make exit button show up */}
-
+        {/* 
         <View style={quizStyles.exit}>
           <Button title="Exit quiz" />
-        </View>
+        </View> */}
       </View>
     </View>
   );

@@ -2,11 +2,11 @@ import { StyleSheet } from "react-native";
 
 export const quizStyles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
-    padding: 20,
+    padding: 10,
     opacity: 1,
+    width: "100%",
   },
   exit: {
     paddingBottom: 20,
@@ -23,14 +23,14 @@ export const quizStyles = StyleSheet.create({
     height: "auto",
     resizeMode: "contain",
   },
-  questionContainer: {
-    position: "relative",
-    width: "95%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
 
   // Styling the Question text
+  qTop: {
+    flex: 2,
+    height: 50,
+    backgroundColor: "lightblue",
+  },
+
   qText: {
     fontSize: 14,
     fontWeight: "bold",
@@ -43,36 +43,44 @@ export const quizStyles = StyleSheet.create({
   },
   // These three style the area for the answer options
   answerOptions: {
-    height: 400,
-    flex: 1,
+    flex: 3,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "stretch",
     padding: 10,
-    margin: 20,
+    backgroundColor: "pink", //Get rid of this when done
   },
 
   // The styling code below styles the previous and next buttons for the
   // Student quiz navigation bar
   qNav: {
+    flex: 1,
     height: "200%",
+    width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     padding: 10,
-    margin: 20,
+    backgroundColor: "green", // get rid of this when done
   },
-  leftButton: {
+  prevButton: {
+    flex: 1,
     backgroundColor: "#00bfff",
     padding: 10,
     borderRadius: 5,
     marginRight: 10,
-    height: "100%",
+    height: "40%",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  rightButton: {
+  nextButton: {
+    flex: 1,
     backgroundColor: "#00bfff",
     padding: 10,
     borderRadius: 5,
-    height: "100%",
+    height: "40%",
+    justifyContent: "center",
+    alignItems: "center",
   },
   buttonText: {
     color: "#00008b",
