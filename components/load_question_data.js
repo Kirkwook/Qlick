@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
-import { QuestionLoader, BasicQuestionDisplay } from "../components/question_components";
-
+import {
+  QuestionLoader,
+  BasicQuestionDisplay,
+  QuizDisplay,
+} from "../components/question_components";
 
 class QuizPageSingle extends Component {
   constructor(props) {
@@ -28,25 +31,37 @@ class QuizPageSingle extends Component {
     }
   };
 
-
   // Renders the page to display loaded JSON one at a time
   // DOES THIS NEED THE LOADING LOGIC OR JUST THE RENDER?
   renderBasicQuestionDisplay = () => {
-
     const { questions, questionIndex } = this.state;
     const question = questions[questionIndex];
 
     return (
       <View>
-          <BasicQuestionDisplay
-            questionIndex={questionIndex}
-            question={question}
-            onNextQuestion={this.handleNextQuestion}
-          />
+        <BasicQuestionDisplay
+          questionIndex={questionIndex}
+          question={question}
+          onNextQuestion={this.handleNextQuestion}
+        />
       </View>
     );
-  }
+  };
 
+  renderQuizDisplay = () => {
+    const { questions, questionIndex } = this.state;
+    const question = questions[questionIndex];
+
+    return (
+      <View>
+        <QuizDisplay
+          questionIndex={questionIndex}
+          question={question}
+          onNextQuestion={this.handleNextQuestion}
+        />
+      </View>
+    );
+  };
 
   // Renders the desired page
   render() {
@@ -58,14 +73,14 @@ class QuizPageSingle extends Component {
     return (
       <View>
         {questions.length > 0 ? (
-        <View>
+          <View>
             {displayType === "basic" && this.renderBasicQuestionDisplay()}
             {displayType === "quiz" && this.renderQuizDisplay()}
             {displayType === "edit" && this.renderEditDisplay()}
             {displayType === "preview" && this.renderPreviewDisplay()}
-        </View>
+          </View>
         ) : (
-        <Text>Loading Question...</Text>
+          <Text>Loading Question...</Text>
         )}
       </View>
     );
