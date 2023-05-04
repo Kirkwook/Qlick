@@ -36,8 +36,6 @@ export default function Home({ navigation }) {
         username: email,
         password: password
       });
-      
-      console.log(response.data);
 
       if (response.data){
         console.log("Is professor")
