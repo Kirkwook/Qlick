@@ -154,9 +154,9 @@ export default function testSite({ navigation }) {
 const styles = StyleSheet.create({
     button: {
       maxWidth: 600,
-      width: "100%",
+      width: "90%",
       borderRadius: 25,
-      height: "8%",
+      height: 50,
       alignItems: "center",
       justifyContent: "center",
       margin: 10,
