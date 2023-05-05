@@ -13,6 +13,7 @@ import {
   } from "react-native";
 import * as FileSystem from 'expo-file-system';
 import { globalStyles } from "../styles/global";
+import axios from "axios";
 
 const CreateQuizPage = () => {
     const backgroundImageSource = require("../assets/Qlick_Logo_CM.png");
@@ -53,6 +54,7 @@ const CreateQuizPage = () => {
     };
     const saveQuiz = async () => {
         const quiz = {
+            quiz_id: 0,
             title: quizTitle,
             creator_id: 123,
             questions: quizQuestions.map((q) => ({
@@ -63,10 +65,20 @@ const CreateQuizPage = () => {
               correct_index: q.correct_index,
             })),
           };
-        const quizFileName = `${quizTitle.replace(/ /g, '_').toLowerCase()}.json`;
-        const quizFileContents = JSON.stringify(quiz);
-        console.log(quizFileName, quizFileContents);
+        console.log(quiz);
         //Add code to send to server here
+        try {
+            const response = await axios.post(
+              "http://10.35.195.217:3000/saveQuiz", quiz
+            );
+            console.log("response accepted!");
+        
+            if (response.data) {
+              return response;
+            }
+          } catch (error) {
+            console.error(error);
+          }
       }
 
       return (
