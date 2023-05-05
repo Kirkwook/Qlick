@@ -73,11 +73,17 @@ const CreateQuizPage = () => {
             );
             console.log("response accepted!");
         
-            if (response.data) {
-              return response;
+            if (response.status === 200) {
+              console.error("Quiz saved successfully!");
+              setQuizTitle('');
+              setQuizQuestions([]);
             }
           } catch (error) {
-            console.error(error);
+              if (error.response && error.response.status === 409) {
+                console.error("Quiz already exists!");
+              } else {
+                console.error(error);
+              }
           }
       }
 
