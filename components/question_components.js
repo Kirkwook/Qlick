@@ -1,5 +1,7 @@
 import axios from "axios";
-import React from "react";
+const fs = require('fs');
+
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -56,14 +58,37 @@ export const BasicQuestionDisplay = ({
   );
 };
 
-export const QuizDisplay = ({ questionIndex, question, onNextQuestion }) => {
+export const QuizDisplay = ({
+  questionIndex,
+  question,
+  onNextQuestion,
+  onPrevQuestion,
+}) => {
+  const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const letters = ["A", "B", "C", "D", "E"];
+
+  const handleAnswerOptionPress = (questionIndex, optionIndex) => {
+    // Update the selected answer index state
+    setSelectedAnswerIndex(optionIndex);
+  
+    // Store the selected answer in a JSON object to be saved later
+    const answer = {
+      questionIndex: questionIndex,
+      selectedOptionIndex: optionIndex
+    };
+  
+    // Do something with the answer object, such as adding it to an array of answers
+    // or saving it to a file/database
+    console.log(answer);
+
+  };
 
   return (
     <View style={quizStyles.container}>
       <View>
         {/* This is where the title and question info are located */}
-        <View style={{ height: 50 }}>
+        <View style={quizStyles.qTop}>
           <Text style={quizStyles.qTitle}>Question {questionIndex + 1}</Text>
           <Text style={quizStyles.qText}>{question.question_text}</Text>
           <Image
@@ -79,6 +104,9 @@ export const QuizDisplay = ({ questionIndex, question, onNextQuestion }) => {
               key={i}
               letter={letters[i]}
               option={option}
+              index={i}
+              select={selectedAnswerIndex === i}
+              onPress={handleAnswerOptionPress}
             ></AnswerOption>
           ))}
         </View>
@@ -86,22 +114,29 @@ export const QuizDisplay = ({ questionIndex, question, onNextQuestion }) => {
         {/* These are the navigation buttons for the previous and next questions */}
         {/* TODO Add functionality for previous question button */}
         <View style={quizStyles.qNav}>
-          <TouchableOpacity style={quizStyles.leftButton}>
-            <Text style={quizStyles.buttonText}>Previous</Text>
+          <TouchableOpacity
+            style={quizStyles.prevButton}
+            onPress={onPrevQuestion}
+          >
+            <Text style={quizStyles.buttonText}>
+              &#x3C;&#x2D;&#x2D; Previous &#x2D;&#x2D;
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={quizStyles.rightButton}
+            style={quizStyles.nextButton}
             onPress={onNextQuestion}
           >
-            <Text style={quizStyles.buttonText}>Next</Text>
+            <Text style={quizStyles.buttonText}>
+              &#x2D;&#x2D; Next &#x2D;&#x2D;&#x3E;
+            </Text>
           </TouchableOpacity>
         </View>
 
         {/* TODO Make exit button show up */}
-
+        {/* 
         <View style={quizStyles.exit}>
           <Button title="Exit quiz" />
-        </View>
+        </View> */}
       </View>
     </View>
   );

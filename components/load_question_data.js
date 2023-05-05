@@ -31,6 +31,13 @@ class QuizPageSingle extends Component {
     }
   };
 
+  handlePrevQuestion = () => {
+    const { questionIndex, questions } = this.state;
+    if (questionIndex > 0) {
+      this.setState({ questionIndex: questionIndex - 1 });
+    }
+  };
+
   // Renders the page to display loaded JSON one at a time
   // DOES THIS NEED THE LOADING LOGIC OR JUST THE RENDER?
   renderBasicQuestionDisplay = () => {
@@ -58,6 +65,7 @@ class QuizPageSingle extends Component {
           questionIndex={questionIndex}
           question={question}
           onNextQuestion={this.handleNextQuestion}
+          onPrevQuestion={this.handlePrevQuestion}
         />
       </View>
     );
