@@ -2,14 +2,35 @@ import React, { useState } from 'react';
 import { StatusBar, TextInput, ImageBackground, View,  TouchableOpacity, Image, Text} from 'react-native';
 import { globalStyles } from '../styles/global';
 import { dashboardStyles } from '../styles/dashboards';
-import { DashboardButtonEnroll, DashboardButtonContainer, 
-  handleSwitchToAccountSettings, handleSwitchToEnroll,
-  handleSwitchToViewPastSessions } from '../components/dashboard_components.js'
+import { DashboardButtonEnroll, DashboardButtonContainer, } from '../components/dashboard_components.js'
+import axios from "axios";
   
+const StudentUserDashboard = ({ navigation }) => {
 
+  const handleSwitchToAccountSettings = () => {
+    navigation.navigate("AccountEditingPage");
+  };
 
+  const handleSwitchToEnroll = async () => {
 
-const StudentUserDashboard = () => {
+    // TODO: Add session joining logic
+    // try {
+    //   const response = await axios.post("http://10.35.195.217:3000/classCode", {
+    //     currentCode: code,
+    //   });
+    //   console.log(response.data);
+    // } catch (error) {
+    //   console.error(error);
+    // }
+
+    // 5/5/23 Currently just displaying the basic quiz
+    navigation.navigate("BasicDisplayTest");
+
+  };
+
+  const handleSwitchToViewPastSessions = () => {
+    navigation.navigate("StudentViewPastSessions");
+  };
 
   const backgroundImageSource = require("../assets/Qlick_Logo_CM.png");
 

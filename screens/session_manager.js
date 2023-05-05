@@ -14,16 +14,27 @@ import {
   handleSwitchToAccountSettings,
   DashboardButtonGreen,
 } from "../components/dashboard_components.js";
-import {
-  handleStartSession,
-  handleSetSessionSettings,
-  handleAddRemoveAccounts,
-  handleViewSessionStatistics,
-  handleViewQuestions,
-} from "../components/session_components.js";
 
-const SessionManagerDashboard = () => {
+const SessionManagerDashboard = ({ navigation }) => {
   const backgroundImageSource = require("../assets/Qlick_Logo_CM.png");
+  
+  
+  const handleStartSession = () => {
+    navigation.navigate("AccountEditingPage");
+  }
+  const handleSetSessionSettings = () => {
+    navigation.navigate("ProfQuestionList");
+  }
+  const handleViewQuestions = () => {
+    navigation.navigate("ProfQuizScreen");
+  }
+  // const handleAddRemoveAccounts = () => {
+  //   navigation.navigate("ProfQuestionList");
+  // }
+  const handleViewSessionStatistics = () => {
+    navigation.navigate("ProfQuestionList2");
+  }
+
 
   return (
     <ImageBackground
@@ -50,19 +61,19 @@ const SessionManagerDashboard = () => {
         />
         <DashboardButtonContainer
           onPress={handleSetSessionSettings}
-          title="Set Session Settings"
+          title="Justin Screen 1"
         />
         <DashboardButtonContainer
           onPress={handleViewQuestions}
-          title="View Questions"
+          title="Justin Screen 2"
         />
-        <DashboardButtonContainer
+        {/* <DashboardButtonContainer
           onPress={handleAddRemoveAccounts}
           title="Add and Remove Accounts"
-        />
+        /> */}
         <DashboardButtonContainer
           onPress={handleViewSessionStatistics}
-          title="View Session Statistics"
+          title="Justin Screen 3"
         />
       </View>
     </ImageBackground>

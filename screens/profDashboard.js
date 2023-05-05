@@ -46,7 +46,7 @@ const QuizListItem = ({ item }) => (
     </View>
 );
 
-const ProfQuestionList = () => {
+const ProfQuestionList2 = () => {
     return (
         <View>
 
@@ -72,7 +72,7 @@ const ProfQuestionList = () => {
 };
 
 
-export default ProfQuestionList;
+export default ProfQuestionList2;
 
 const styles = StyleSheet.create({
     studentListContainer: {

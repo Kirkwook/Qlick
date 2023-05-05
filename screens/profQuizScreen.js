@@ -32,7 +32,7 @@ const ProfQuizScreen = () => {
 
       <View style={styles.imgDivContainer}>
         <Image
-          source={require("../assets/sampleQuestion2.png")}
+          source={require("../assets/Qlick_Logo_CM.png")}
           style={styles.img}
         />
       </View>
