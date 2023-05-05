@@ -1,4 +1,6 @@
 import axios from "axios";
+const fs = require('fs');
+
 import React, { useState } from "react";
 import {
   View,
@@ -67,9 +69,19 @@ export const QuizDisplay = ({
   const letters = ["A", "B", "C", "D", "E"];
 
   const handleAnswerOptionPress = (questionIndex, optionIndex) => {
-    // Reset the selected state of all the answer options except the one that was just selected
-    setCurrentQuestionIndex(questionIndex);
-    console.log(questionIndex);
+    // Update the selected answer index state
+    setSelectedAnswerIndex(optionIndex);
+  
+    // Store the selected answer in a JSON object to be saved later
+    const answer = {
+      questionIndex: questionIndex,
+      selectedOptionIndex: optionIndex
+    };
+  
+    // Do something with the answer object, such as adding it to an array of answers
+    // or saving it to a file/database
+    console.log(answer);
+
   };
 
   return (
