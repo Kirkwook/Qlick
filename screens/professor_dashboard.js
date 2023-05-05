@@ -2,11 +2,30 @@ import React, { useState } from 'react';
 import { Text, ImageBackground, TouchableOpacity, View, Image } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { dashboardStyles } from '../styles/dashboards';
-import { DashboardButtonContainer, handleSwitchToAccountSettings ,handleSwitchToStudentMode, handleSwitchToCreateQuestionSet, handleSwitchToSessionManager, handleSwitchToResponseManager } from '../components/dashboard_components.js'
+import { NavigationActions } from 'react-navigation';
+import { DashboardButtonContainer ,handleSwitchToStudentMode, handleSwitchToCreateQuestionSet, handleSwitchToSessionManager, handleSwitchToResponseManager } from '../components/dashboard_components.js'
 
+const ProfessorUserDashboard = ({ navigation }) => {
 
-const ProfessorUserDashboard = () => {
+  const handleSwitchToAccountSettings = () => {
+    navigation.navigate("AccountEditingPage");
+  };
 
+  const handleSwitchToCreateQuestionSet = () => {
+    navigation.navigate("QuizCreator");
+  };
+  
+  const handleSwitchToSessionManager = () => {
+    navigation.navigate("SessionManagerDashboard");
+  };
+  
+  const handleSwitchToResponseManager = () => {
+    navigation.navigate("ViewStudentResponses");
+  };
+
+  const handleSwitchToStudentMode = () => {
+    navigation.navigate("StudentViewMode");
+  };
     const backgroundImageSource = require("../assets/Qlick_Logo_CM.png");
 
     return (

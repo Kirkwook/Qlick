@@ -2,11 +2,31 @@ import React, { useState } from 'react';
 import { ImageBackground, TouchableOpacity, View, Image } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { dashboardStyles } from '../styles/dashboards';
-import { DashboardButtonContainer, handleSwitchToAccountSettings, handleEditAccounts, 
-  handleEditDatabase, handleSwitchToStudentMode, handleSwitchToProfMode } from '../components/dashboard_components.js'
+import { DashboardButtonContainer, } from '../components/dashboard_components.js'
 
 
-const InternalUserDashboard = () => {
+const InternalUserDashboard = ({ navigation }) => {
+
+  const handleSwitchToAccountSettings = () => {
+    navigation.navigate("AccountEditingPage");
+  };
+  const handleSwitchToStudentMode = () => {
+    navigation.navigate("StudentViewMode");
+  };
+  const handleSwitchToProfMode = () => {
+    navigation.navigate("ProfViewMode");
+  };
+  const handleEditAccounts = () => {
+    setEditingAccounts(true);
+    navigation.navigate("EditUserAccounts");
+  };
+  const handleEditDatabase = () => {
+    setEditingDatabase(true);
+    navigation.navigate("EditDatabase");
+  };
+  const handleGoToLogin = () => {
+    navigation.navigate("IntGoToLogin");
+  };
 
   // MAY NEED TO BE ADDED TO COMPONENTS. FUNCTIONALITY NEEDED
     const [editingAccounts, setEditingAccounts] = useState(false);
@@ -27,6 +47,7 @@ const InternalUserDashboard = () => {
           <DashboardButtonContainer onPress={handleSwitchToProfMode} title="Professor Mode" />
           <DashboardButtonContainer onPress={handleEditAccounts} title="Edit User Accounts" />
           <DashboardButtonContainer onPress={handleEditDatabase} title="Edit Database" />
+          <DashboardButtonContainer onPress={handleGoToLogin} title="Go to Login Page" />
         </View>
       </ImageBackground>
 

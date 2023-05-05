@@ -1,8 +1,9 @@
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
-import Login from "../screens/login";
-import SignUp from "../screens/signup";
-import ForgotPassword from "../screens/forgotpassword";
+
+import Login from '../screens/login';
+import SignUp from '../screens/signup';
+import ForgotPassword from '../screens/forgotpassword';
 import InternalUserDashboard from "../screens/internal_dashboard";
 import StudentUserDashboard from "../screens/student_dashboard";
 import ProfessorUserDashboard from "../screens/professor_dashboard";
@@ -12,7 +13,6 @@ import studentsQuizScreen from "../screens/QuizScreen";
 import QuizCreator from "../screens/quiz_creator"
 import profDashboard from "../screens/profDashboard"
 import ProfQuestionList from "../screens/profQuestionList";
-
 import BasicDisplayTest from "../screens/basic_question_display";
 
 import devNav from "../screens/dev_nav"
