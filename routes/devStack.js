@@ -10,6 +10,8 @@ import SessionManagerDashboard from "../screens/session_manager";
 import AccountEditingPage from "../screens/edit_account";
 import studentsQuizScreen from "../screens/QuizScreen";
 import QuizCreator from "../screens/quiz_creator"
+import profDashboard from "../screens/profDashboard"
+import ProfQuestionList from "../screens/profQuestionList";
 
 import BasicDisplayTest from "../screens/basic_question_display";
 
@@ -64,6 +66,12 @@ const screens = {
       title: "Pr. Dashboard",
     },
   },
+  profDashboard: {
+    screen: profDashboard,
+    navigationOptions: {
+      title: "Pr. Dashboard 2",
+    },
+  },
   SessionManagerDashboard: {
     screen: SessionManagerDashboard,
     navigationOptions: {
@@ -80,6 +88,12 @@ const screens = {
     screen: QuizCreator,
     navigationOptions: {
       title: "Quiz Maker",
+    },
+  },
+  ProfQuestionList: {
+    screen: ProfQuestionList,
+    navigationOptions: {
+      title: "Prof Q List",
     },
   },
 };
