@@ -42,18 +42,7 @@ const SessionManagerDashboard = ({ navigation }) => {
       resizeMode="cover"
       style={globalStyles.backgroundImage}
       imageStyle={{ opacity: 0.15 }}
-    >
-      <View style={dashboardStyles.accountContainer}>
-        <TouchableOpacity
-          onPress={handleSwitchToAccountSettings}
-          style={dashboardStyles.settingsButton}
-        >
-          <Image
-            source={require("../assets/settings.png")}
-            style={dashboardStyles.settingsIcon}
-          />
-        </TouchableOpacity>
-      </View>
+    >s
       <View style={dashboardStyles.container}>
         <DashboardButtonGreen
           onPress={handleStartSession}

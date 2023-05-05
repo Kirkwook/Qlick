@@ -8,7 +8,7 @@ const EditUserAccounts = () => {
   return (
     <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
         <View style={globalStyles.container}>
-            <Text> ViewStudentResponses UNDER CONSTRUCTION </Text>
+            <Text> EditUserAccounts UNDER CONSTRUCTION </Text>
         </View>
     </ImageBackground>
   );
