@@ -9,14 +9,23 @@ import ProfessorUserDashboard from "../screens/professor_dashboard";
 import SessionManagerDashboard from "../screens/session_manager";
 import AccountEditingPage from "../screens/edit_account";
 import studentsQuizScreen from "../screens/QuizScreen";
+import QuizCreator from "../screens/quiz_creator"
 
 import BasicDisplayTest from "../screens/basic_question_display";
 
+import devNav from "../screens/dev_nav"
+
 const screens = {
-  Login: {
-    screen: BasicDisplayTest,
+  devNav: {
+    screen: devNav,
     navigationOptions: {
-      title: "studentQuizScreen",
+      title: "Developer Navigation",
+    },
+  },
+  Login: {
+    screen: Login,
+    navigationOptions: {
+      title: "Login",
     },
   },
   SignUp: {
@@ -35,6 +44,42 @@ const screens = {
     screen: ForgotPassword,
     navigationOptions: {
       title: "Forgot Password?",
+    },
+  },
+  InternalUserDashboard: {
+    screen: InternalUserDashboard,
+    navigationOptions: {
+      title: "In. Dashboard",
+    },
+  },
+  StudentUserDashboard: {
+    screen: StudentUserDashboard,
+    navigationOptions: {
+      title: "St. Dashboard",
+    },
+  },
+  ProfessorUserDashboard: {
+    screen: ProfessorUserDashboard,
+    navigationOptions: {
+      title: "Pr. Dashboard",
+    },
+  },
+  SessionManagerDashboard: {
+    screen: SessionManagerDashboard,
+    navigationOptions: {
+      title: "Session Dashboard",
+    },
+  },
+  studentsQuizScreen: {
+    screen: studentsQuizScreen,
+    navigationOptions: {
+      title: "Quiz",
+    },
+  },
+  QuizCreator: {
+    screen: QuizCreator,
+    navigationOptions: {
+      title: "Quiz Maker",
     },
   },
 };
