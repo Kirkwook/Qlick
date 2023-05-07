@@ -18,9 +18,16 @@ import {
 const SessionManagerDashboard = ({ navigation }) => {
   const backgroundImageSource = require("../assets/Qlick_Logo_CM.png");
   
-  
+
+
+
+
+
   const handleStartSession = () => {
     navigation.navigate("AccountEditingPage");
+  }
+  const handleCreateSession = () => {
+    navigation.navigate("CreateSession");
   }
   const handleSetSessionSettings = () => {
     navigation.navigate("ProfQuestionList");
@@ -42,8 +49,12 @@ const SessionManagerDashboard = ({ navigation }) => {
       resizeMode="cover"
       style={globalStyles.backgroundImage}
       imageStyle={{ opacity: 0.15 }}
-    >s
+    >
       <View style={dashboardStyles.container}>
+      <DashboardButtonGreen
+          onPress={handleCreateSession}
+          title="Create a Session"
+        />
         <DashboardButtonGreen
           onPress={handleStartSession}
           title="Start a Session"
