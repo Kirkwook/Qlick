@@ -5,11 +5,42 @@ import { dashboardStyles } from '../styles/dashboards';
 import { DashboardButtonEnroll, DashboardButtonContainer, } from '../components/dashboard_components.js'
 import axios from "axios";
   
+const API_BASE_URL = 'http://10.35.195.217:3000';
+
+
 const StudentUserDashboard = ({ navigation }) => {
+
+  const [sessionCode, setSessionCode] = useState('');
+  const [sessionId, setSessionId] = useState(null);
+  const [sessionInfo, setSessionInfo] = useState(null);
+  const [isJoined, setIsJoined] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSwitchToAccountSettings = () => {
     navigation.navigate("AccountEditingPage");
   };
+
+
+  const joinSession = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/sessions/${sessionCode}/join`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId: 1 }), // Replace with actual student ID
+      });
+      if (response.ok) {
+        setIsJoined(true);
+      } else {
+        setError(await response.text());
+      }
+    } catch (err) {
+      console.error(err);
+      setError('Error joining session');
+    }
+};
+
+
+
 
   const handleSwitchToEnroll = async () => {
 
@@ -23,6 +54,8 @@ const StudentUserDashboard = ({ navigation }) => {
     //   console.error(error);
     // }
 
+
+
     // 5/5/23 Currently just displaying the basic quiz
     navigation.navigate("BasicDisplayTest");
 
@@ -34,7 +67,6 @@ const StudentUserDashboard = ({ navigation }) => {
 
   const backgroundImageSource = require("../assets/Qlick_Logo_CM.png");
 
-  const [code, setCode] = useState("");
 
   return (
     <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.4 }}>
@@ -50,7 +82,7 @@ const StudentUserDashboard = ({ navigation }) => {
               style={globalStyles.textInputEnroll}
               placeholder="Class Code"
               placeholderTextColor="#696969"
-              onChangeText={(code) => setCode(code)}
+              onChangeText={(code) => setSessionCode(code)}
             />
           </View>
 
@@ -59,7 +91,7 @@ const StudentUserDashboard = ({ navigation }) => {
             COULD AUTOMATICALLY REFILL LAST SESSION CODE? */
 
             }
-          <DashboardButtonEnroll onPress={handleSwitchToEnroll} title="Enroll in a Session" />
+          <DashboardButtonEnroll onPress={joinSession} title="Join a Session" />
           <DashboardButtonContainer onPress={handleSwitchToViewPastSessions} title="View Past Sessions" />
       </View>
       </ImageBackground>

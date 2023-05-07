@@ -6,6 +6,9 @@ import Login from '../screens/login';
 import SignUp from '../screens/signup';
 import ForgotPassword from '../screens/forgotpassword';
 
+//Ben Screens
+import CreateSession from '../screens/createSession'
+
 // Connonr dashboards
 import InternalUserDashboard from "../screens/internal_dashboard";
 import StudentUserDashboard from "../screens/student_dashboard";
@@ -118,6 +121,12 @@ const screens = {
             title: 'Manage Sessions',
         }
     },
+    CreateSession: {
+        screen: CreateSession,
+        navigationOptions: {
+            title: 'Create Session',
+        }
+    },
     ViewStudentResponses: {
         screen: ViewStudentResponses,
         navigationOptions: {
@@ -139,7 +148,7 @@ const screens = {
     ProfQuizScreen: {
         screen: ProfQuizScreen,
         navigationOptions: {
-            title: 'XX',
+            title: 'Session Quiz',
         }
     },
     ProfQuestionList2: {

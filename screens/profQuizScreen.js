@@ -10,42 +10,69 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
+import { globalStyles } from '../styles/global';
 import axios from "axios";
 
-const ProfQuizScreen = () => {
+
+const backgroundImageSource = require("../assets/Qlick_Logo_CM.png");
+
+// const { sessionCode, sessionId } = route.params;
+// const sessionCode = navigation.getParam('sessionCode');
+// const sessionId = props.navigation.getParam('sessionId');
+
+const ProfQuizScreen = ({navigation, props}) => {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.switchContainer}>
-        <TouchableOpacity onPress={() => setIsSwitchOn(!isSwitchOn)}>
-          <View
-            style={[styles.toggleSwitch, isSwitchOn && styles.toggleSwitchOn]}
-          />
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.exitContainer}>
-        <Button title="Exit question" onPress={() => {}} />
-      </View>
-
-      <View style={styles.imgDivContainer}>
-        <Image
-          source={require("../assets/Qlick_Logo_CM.png")}
-          style={styles.img}
-        />
-      </View>
-
-      <View style={styles.navContainer}>
-        <View style={styles.prevContainer}>
-          <Button title="Previous Question" onPress={() => {}} />
+    <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
+      <TouchableWithoutFeedback
+        onPress={() => {
+          Keyboard.dismiss();
+        }}
+      >
+        <View style={globalStyles.container}>
+          <View style={styles.infoContainer}>
+            <Text style={styles.infoText}>SessionCode:</Text>
+            <Text style={styles.infoText}>{navigation.getParam('sessionCode')}</Text>
+          </View>
+          <View style={styles.infoContainer}>
+            <Text style={styles.infoText}>SessionId:</Text>
+            <Text style={styles.infoText}>{navigation.getParam('sessionId')}</Text>
+          </View>
         </View>
-        <View style={styles.nextContainer}>
-          <Button title="Next Question" onPress={() => {}} />
-        </View>
-      </View>
-    </View>
+      </TouchableWithoutFeedback>
+    </ImageBackground>
+    // <View style={styles.container}>
+    //   <View style={styles.switchContainer}>
+    //     <TouchableOpacity onPress={() => setIsSwitchOn(!isSwitchOn)}>
+    //       <View
+    //         style={[styles.toggleSwitch, isSwitchOn && styles.toggleSwitchOn]}
+    //       />
+    //     </TouchableOpacity>
+    //   </View>
+
+    //   <View style={styles.exitContainer}>
+    //     <Button title="Exit question" onPress={() => {}} />
+    //   </View>
+
+    //   <View style={styles.imgDivContainer}>
+    //     <Image
+    //       source={require("../assets/Qlick_Logo_CM.png")}
+    //       style={styles.img}
+    //     />
+    //   </View>
+
+    //   <View style={styles.navContainer}>
+    //     <View style={styles.prevContainer}>
+    //       <Button title="Previous Question" onPress={() => {}} />
+    //     </View>
+    //     <View style={styles.nextContainer}>
+    //       <Button title="Next Question" onPress={() => {}} />
+    //     </View>
+    //   </View>
+    // </View>
   );
 };
 
