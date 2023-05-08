@@ -32,6 +32,7 @@ export default function StartSession({ navigation }) {
     // const startSession = async (sessionId) => {
   const startSession = async () => {
     const sessionId = navigation.getParam('sessionId')
+    const sessionCode = navigation.getParam('sessionCode')
     try {
       const response = await axios.post(`${API_BASE_URL}/sessions/start`, {
         sessionId: sessionId
