@@ -27,11 +27,11 @@ const ProfQuizScreen = ({navigation, props}) => {
 
   return (
     <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
-      <TouchableWithoutFeedback
+      {/* <TouchableWithoutFeedback
         onPress={() => {
           Keyboard.dismiss();
         }}
-      >
+      > */}
         <View style={globalStyles.container}>
           <View style={styles.infoContainer}>
             <Text style={styles.infoText}>SessionCode:</Text>
@@ -42,37 +42,38 @@ const ProfQuizScreen = ({navigation, props}) => {
             <Text style={styles.infoText}>{navigation.getParam('sessionId')}</Text>
           </View>
         </View>
-      </TouchableWithoutFeedback>
+    <View style={styles.container}>
+      <View style={styles.switchContainer}>
+        <TouchableOpacity onPress={() => setIsSwitchOn(!isSwitchOn)}>
+          <View
+            style={[styles.toggleSwitch, isSwitchOn && styles.toggleSwitchOn]}
+          />
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.exitContainer}>
+        <Button title="Exit question" onPress={() => {}} />
+      </View>
+
+      <View style={styles.imgDivContainer}>
+        <Image
+          source={require("../assets/Qlick_Logo_CM.png")}
+          style={styles.img}
+        />
+      </View>
+
+      <View style={styles.navContainer}>
+        <View style={styles.prevContainer}>
+          <Button title="Previous Question" onPress={() => {}} />
+        </View>
+        <View style={styles.nextContainer}>
+          <Button title="Next Question" onPress={() => {}} />
+        </View>
+      </View>
+    </View>
+  {/* </TouchableWithoutFeedback> */}
     </ImageBackground>
-    // <View style={styles.container}>
-    //   <View style={styles.switchContainer}>
-    //     <TouchableOpacity onPress={() => setIsSwitchOn(!isSwitchOn)}>
-    //       <View
-    //         style={[styles.toggleSwitch, isSwitchOn && styles.toggleSwitchOn]}
-    //       />
-    //     </TouchableOpacity>
-    //   </View>
-
-    //   <View style={styles.exitContainer}>
-    //     <Button title="Exit question" onPress={() => {}} />
-    //   </View>
-
-    //   <View style={styles.imgDivContainer}>
-    //     <Image
-    //       source={require("../assets/Qlick_Logo_CM.png")}
-    //       style={styles.img}
-    //     />
-    //   </View>
-
-    //   <View style={styles.navContainer}>
-    //     <View style={styles.prevContainer}>
-    //       <Button title="Previous Question" onPress={() => {}} />
-    //     </View>
-    //     <View style={styles.nextContainer}>
-    //       <Button title="Next Question" onPress={() => {}} />
-    //     </View>
-    //   </View>
-    // </View>
+    
   );
 };
 
