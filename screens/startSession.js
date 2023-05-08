@@ -11,7 +11,7 @@ import {
 import { globalStyles } from '../styles/global';
 
 
-export default function CreateSession({ navigation }) {
+export default function StartSession({ navigation }) {
     const [sessionCode, setSessionCode] = useState('');
     const [sessionId, setSessionId] = useState(null);
     // const [sessionInfo, setSessionInfo] = useState(null);
@@ -29,36 +29,74 @@ export default function CreateSession({ navigation }) {
 
     const API_BASE_URL = 'http://10.35.195.217:3000';
   
-  
-  // const createSession = async (sessionName, quizId) => {
-  const createSession = async () => {
+    // const startSession = async (sessionId) => {
+  const startSession = async () => {
+    const sessionId = navigation.getParam('sessionId')
     try {
-    //   const response = await axios.post(`${API_BASE_URL}/sessions`, {
-    //     sessionName,
-    //     quizId,
-    //     isQuizSession: false,
-    //     currentQuestionNumber: 0,
-    //     isActive: false,
-    //   });
-    const response = await axios.post(`${API_BASE_URL}/sessions`, {
-        userId,
-        quizId,
+      const response = await axios.post(`${API_BASE_URL}/sessions/start`, {
+        sessionId: sessionId
       });
-      //route.params.sessionCode
-      const { sessionId, sessionCode } = response.data;
-      console.log(response.data);
-      setSessionCode(sessionCode);
-      setSessionId(sessionId);
-      Alert.alert('Success!', 'You\'ve successfully created a session.', [
+      console.log(response.data); // log the response data (optional)
+      Alert.alert('Success!', 'You\'ve successfully started a session.', [
         {
           text: 'OK',
-          onPress: () => navigation.navigate("StartSession", {sessionCode, sessionId})
+          onPress: () => navigation.navigate("ProfQuizScreen", {sessionCode, sessionId})
         }
       ]);
+      return response.data; // return the response data (optional)
     } catch (error) {
       console.error(error);
     }
   };
+
+  return (
+    <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
+      {/* <TouchableWithoutFeedback
+        onPress={() => {
+          Keyboard.dismiss();
+        }}
+      > */}
+        <View style={globalStyles.container}>
+          <View style={styles.infoContainer}>
+            <Text style={styles.infoText}>SessionCode:</Text>
+            <Text style={styles.infoText}>{navigation.getParam('sessionCode')}</Text>
+          </View>
+          <View style={styles.infoContainer}>
+            <Text style={styles.infoText}>SessionId:</Text>
+            <Text style={styles.infoText}>{navigation.getParam('sessionId')}</Text>
+          </View>
+        </View>
+        <View style={dashboardStyles.container}>
+                <DashboardButtonGreen
+                    // onPress = {navigation.navigate("StartSession", {sessionCode, sessionId})}
+                    onPress = {startSession}
+                    title="Start Session"
+                />
+            </View>
+      {/* </TouchableWithoutFeedback> */}
+    </ImageBackground>
+  )
+//   const startSession = async () => {
+//     try {
+//     const response = await axios.post(`${API_BASE_URL}/sessions/:sessionId/start`, {
+//         userId,
+//         quizId,
+//       });
+//       //route.params.sessionCode
+//       const { sessionId, sessionCode } = response.data;
+//       console.log(response.data);
+//       setSessionCode(sessionCode);
+//       setSessionId(sessionId);
+//       Alert.alert('Success!', 'You\'ve successfully created a session.', [
+//         {
+//           text: 'OK',
+//           onPress: (handleStartSession)
+//         }
+//       ]);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
   
   // This function takes two arguments, sessionName and quizId, which represent the name of the session and the ID of the quiz associated with the session, respectively.
   
@@ -88,21 +126,7 @@ export default function CreateSession({ navigation }) {
       setError('Error creating quiz session');
     }
   };
-  
-  
-    return (
-      <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
-            <ScrollView contentContainerStyle={globalStyles.container} KeyboardShouldPersistTaps='handled'>
-            <View style={dashboardStyles.container}>
-                <DashboardButtonGreen
-                    onPress={createSession}
-                    title="Create Session"
-                />
-            </View>
-            </ScrollView>
-      </ImageBackground>
-    );
-  // };
+
 }
 
 

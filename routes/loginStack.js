@@ -8,6 +8,7 @@ import ForgotPassword from '../screens/forgotpassword';
 
 //Ben Screens
 import CreateSession from '../screens/createSession'
+import StartSession from '../screens/startSession'
 
 // Connonr dashboards
 import InternalUserDashboard from "../screens/internal_dashboard";
@@ -125,6 +126,12 @@ const screens = {
         screen: CreateSession,
         navigationOptions: {
             title: 'Create Session',
+        }
+    },
+    StartSession: {
+        screen: StartSession,
+        navigationOptions: {
+            title: 'Start Session',
         }
     },
     ViewStudentResponses: {
