@@ -39,10 +39,10 @@ export default function Home({ navigation }) {
 
       if (response.data){
         console.log("Is professor")
-        navigation.navigate("ProfessorUserDashboard")
+        navigation.navigate("ProfessorUserDashboard") //add other data to pass to dashbaords (i.e userId)
       }
       else {
-        navigation.navigate("StudentUserDashboard")
+        navigation.navigate("StudentUserDashboard") //add other data to pass to dashbaords (i.e userId)
         console.log("Is NOT professor")
       }
     } catch (error) {

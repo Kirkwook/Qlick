@@ -22,15 +22,26 @@ const StudentUserDashboard = ({ navigation }) => {
 
 
   const joinSession = async () => {
+    // console.log("ran1");
     try {
-      const response = await fetch(`${API_BASE_URL}/sessions/${sessionCode}/join`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId: 1 }), // Replace with actual student ID
+      // console.log("ran2");
+      const response = await axios.post(`${API_BASE_URL}/sessions/start`, {
+        sessionCode: sessionCode,
+        userId: 1
       });
-      if (response.ok) {
+      // console.log("ran3");
+      // const response = await fetch(`${API_BASE_URL}/sessions/${sessionCode}/join`, {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ userId: 1 }), // Replace with actual student ID
+      // });
+      if (response.data) {
+        console.log("ran4");
         setIsJoined(true);
+        navigation.navigate("BasicDisplayTest"); //add code to pass quiz code, which will pull correct quiz data once on the page
+        console.log("afterNav")
       } else {
+        // console.log("ran5");
         setError(await response.text());
       }
     } catch (err) {
