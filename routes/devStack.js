@@ -18,12 +18,12 @@ import BasicDisplayTest from "../screens/basic_question_display";
 import devNav from "../screens/dev_nav"
 
 const screens = {
-  devNav: {
-    screen: devNav,
-    navigationOptions: {
-      title: "Developer Navigation",
-    },
-  },
+  // devNav: {
+  //   screen: devNav,
+  //   navigationOptions: {
+  //     title: "Developer Navigation",
+  //   },
+  // },
   Login: {
     screen: Login,
     navigationOptions: {
