@@ -18,7 +18,7 @@ import SessionManagerDashboard from "../screens/session_manager";
 import AccountEditingPage from "../screens/edit_account";
 
 // Drew student screens (currently pulling BasicDisplayTest 5/5/23)
-import studentsQuizScreen from "../screens/QuizScreen";
+import studentsQuizScreen from "../screens/studentQuizScreen";
 import BasicDisplayTest from "../screens/basic_question_display";
 
 // Bobby screens
@@ -27,7 +27,8 @@ import QuizCreator from "../screens/quiz_creator";
 // Justin Professor Screens
 import ProfQuestionList from "../screens/profQuestionList";
 import ProfQuizScreen from "../screens/profQuizScreen";
-import ProfQuestionList2 from "../screens/profDashboard"
+import ViewStudentsForProf from "../screens/ViewStudentsForProf";
+import ViewProfQuizSets from "../screens/ViewProfQuizSets";
 
 // Unfinished screens
 import ViewStudentResponses from "../screens/view_student_responses"
@@ -149,7 +150,7 @@ const screens = {
     ProfQuestionList: {
         screen: ProfQuestionList,
         navigationOptions: {
-            title: 'XX',
+            title: 'ProfQuestionList',
         }
     },
     ProfQuizScreen: {
@@ -158,10 +159,16 @@ const screens = {
             title: 'Session Quiz',
         }
     },
-    ProfQuestionList2: {
-        screen: ProfQuestionList2,
+    ViewStudentsForProf: {
+        screen: ViewStudentsForProf,
         navigationOptions: {
-            title: 'XX',
+            title: 'ViewStudentsForProf',
+        }
+    },
+    ViewProfQuizSets: {
+        screen: ViewProfQuizSets,
+        navigationOptions: {
+            title: 'ViewProfQuizSets',
         }
     },
 
