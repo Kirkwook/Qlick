@@ -91,4 +91,65 @@ export const quizStyles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
+
+// PROF VIEW
+
+pQuizContainer: {
+  justifyContent: "center",
+  alignItems: "center",
+},
+pHeaderText: {
+},
+pText: {
+  fontSize: 20,
+  textAlign: "center",
+  margin: 5,
+},
+pTitle: {
+  fontSize: 24,
+  fontWeight: "bold",
+  textAlign: "center",
+  margin: 5,
+},
+pImage: { 
+  width: "100%", 
+  height: 200,
+  justifyContent: "center",
+  alignItems: "center",
+},
+pQuestions: {
+  fontSize: 24,
+  textAlign: "center",
+  margin: 5,
+},
+pButtons: {
+  backgroundColor: "lightblue",
+  padding: 10,
+  borderRadius: 5,
+  marginRight: 10,
+  width: "45%",
+  height: "40%",
+  justifyContent: "center",
+  alignItems: "center",
+},
+
+pButtonContainer: {
+  flexDirection: "row",
+  padding: 10,
+  borderRadius: 5,
+  marginRight: 10,
+  justifyContent: "center",
+  alignItems: "center",
+},
+
+
+
+
+
+
+
+
+
+
+
 });

@@ -39,12 +39,13 @@ import EditUserAccounts from "../screens/edit_all_user_accounts";
 
 const screens = {
 
-    AuthLoadingScreen: {
-        screen: AuthLoadingScreen,
-        navigationOptions: {
-            title: 'Loading',
-        }
-    },
+    // AuthLoadingScreen: {
+    //     screen: AuthLoadingScreen,
+    //     navigationOptions: {
+    //         title: 'Loading',
+    //         headerLeft: ()=> null
+    //     }
+    // },
 
 
     // DEVELOPMENT - INTERNAL USER FIRST
@@ -56,8 +57,6 @@ const screens = {
     },
 
     //LOGIN SCREENS
-
-     
     Login: {
         screen: Login,
         navigationOptions: {
