@@ -91,7 +91,7 @@ const StudentUserDashboard = ({ navigation }) => {
           <View style={globalStyles.inputViewEnroll}>
             <TextInput
               style={globalStyles.textInputEnroll}
-              placeholder="Class Code"
+              placeholder="Session Code"
               placeholderTextColor="#696969"
               onChangeText={(code) => setSessionCode(code)}
             />

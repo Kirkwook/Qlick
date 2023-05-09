@@ -30,9 +30,9 @@ const SessionManagerDashboard = ({ navigation }) => {
     const handleViewQuestions = () => {
         navigation.navigate("ProfQuizScreen");
     }
-    // const handleAddRemoveAccounts = () => {
-    //   navigation.navigate("ProfQuestionList");
-    // }
+    const handleViewSessions = () => {
+      navigation.navigate("ProfQuestionList");
+    }
     const handleViewSessionStatistics = () => {
         navigation.navigate("ViewStudentsForProf");
     }
@@ -52,29 +52,21 @@ const SessionManagerDashboard = ({ navigation }) => {
                     onPress={handleCreateSession}
                     title="Create a Session"
                 />
-                <DashboardButtonGreen
-                    onPress={handleStartSession}
-                    title="Start a Session"
+                <DashboardButtonContainer
+                    onPress={handleViewSessions}
+                    title="View my Sessions"
                 />
                 <DashboardButtonContainer
                     onPress={handleSetSessionSettings}
-                    title="View list of set questions"
+                    title="View Current Questions"
                 />
-                <DashboardButtonContainer
-                    onPress={handleViewQuestions}
-                    title="Professor's question view"
-                />
-                {/* <DashboardButtonContainer
-          onPress={handleAddRemoveAccounts}
-          title="Add and Remove Accounts"
-        /> */}
                 <DashboardButtonContainer
                     onPress={handleViewSessionStatistics}
-                    title="View a list of students for this professor"
+                    title="View Students"
                 />
                 <DashboardButtonContainer
                     onPress={handleViewProfQuizSet}
-                    title="View the professor's quiz sets"
+                    title="View my Quizzes"
                 />
             </View>
         </ImageBackground>
