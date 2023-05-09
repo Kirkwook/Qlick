@@ -5,7 +5,7 @@ import {
     Text,
     TextInput,
     Image,
-    TouchableWithoutFeedback,
+    ScrollView,
     Keyboard,
     TouchableOpacity,
     ImageBackground,
@@ -25,7 +25,7 @@ const recover = async () => {
 export default function ForgotPassword() {
     const [email, setEmail] = useState('');
     return (
-        <View style={globalStyles.container}>
+      <ScrollView contentContainerStyle={globalStyles.container} KeyboardShouldPersistTaps='handled'>
             <View style={styles.container}>
                 <Text>Forgot Password?</Text>
             </View>
@@ -45,7 +45,7 @@ export default function ForgotPassword() {
                 Recover
               </Text>
             </TouchableOpacity>
-        </View>
+        </ScrollView>
     )
 }
 
