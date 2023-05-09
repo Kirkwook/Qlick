@@ -51,7 +51,7 @@ export default function StartSession({ navigation }) {
   };
 
   return (
-    <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
+    <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.05 }}>
       {/* <TouchableWithoutFeedback
         onPress={() => {
           Keyboard.dismiss();
@@ -59,11 +59,11 @@ export default function StartSession({ navigation }) {
       > */}
         <View style={globalStyles.container}>
           <View style={styles.infoContainer}>
-            <Text style={styles.infoText}>SessionCode:</Text>
+            <Text style={styles.infoHeader}>Session Code</Text>
             <Text style={styles.infoText}>{navigation.getParam('sessionCode')}</Text>
           </View>
           <View style={styles.infoContainer}>
-            <Text style={styles.infoText}>SessionId:</Text>
+            <Text style={styles.infoHeader}>Session ID</Text>
             <Text style={styles.infoText}>{navigation.getParam('sessionId')}</Text>
           </View>
         </View>
@@ -151,6 +151,34 @@ const styles = StyleSheet.create({
   },
   checkbox: {
     marginRight : 10,
+  },
+  infoText: {
+    color: '#000000',
+    fontSize: 36,
+    marginRight: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  infoHeader: {
+    color: '#F0F0F0',
+    fontSize: 42,
+    margin: 25,
+    borderRadius: 25,
+    padding: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: "#696969",
+    
+  },
+  infoContainer: {
+    maxWidth : 800,
+    width: '100%',
+    padding: 15,
+    alignItems: 'center',
+    marginBottom: 10,
+    backgroundColor: "#E0E0E0",
+    borderRadius: 5,
+    opacity: 0.85
   },
 });
 

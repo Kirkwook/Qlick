@@ -38,12 +38,12 @@ import EditUserAccounts from "../screens/edit_all_user_accounts";
 const screens = {
 
     // DEVELOPMENT - INTERNAL USER FIRST
-    // InternalUserDashboard: {
-    //     screen: InternalUserDashboard,
-    //     navigationOptions: {
-    //         title: 'Internal',
-    //     }
-    // },
+    InternalUserDashboard: {
+        screen: InternalUserDashboard,
+        navigationOptions: {
+            title: 'Internal',
+        }
+    },
 
     //LOGIN SCREENS
 

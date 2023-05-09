@@ -92,14 +92,12 @@ export default function CreateSession({ navigation }) {
   
     return (
       <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
-            <ScrollView contentContainerStyle={globalStyles.container} KeyboardShouldPersistTaps='handled'>
             <View style={dashboardStyles.container}>
                 <DashboardButtonGreen
                     onPress={createSession}
                     title="Create Session"
                 />
             </View>
-            </ScrollView>
       </ImageBackground>
     );
   // };

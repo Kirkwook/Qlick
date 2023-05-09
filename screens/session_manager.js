@@ -18,11 +18,6 @@ import {
 const SessionManagerDashboard = ({ navigation }) => {
   const backgroundImageSource = require("../assets/Qlick_Logo_CM.png");
   
-
-
-
-
-
   const handleStartSession = () => {
     navigation.navigate("AccountEditingPage");
   }
