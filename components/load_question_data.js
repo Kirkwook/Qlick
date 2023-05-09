@@ -71,6 +71,23 @@ class QuizPageSingle extends Component {
     );
   };
 
+  renderProfQuizDisplay = () => {
+    const { questions, questionIndex } = this.state;
+    const question = questions[questionIndex];
+
+    return (
+      <View>
+        <QuizDisplay
+          questionIndex={questionIndex}
+          question={question}
+          onNextQuestion={this.handleNextQuestion}
+          onPrevQuestion={this.handlePrevQuestion}
+        />
+      </View>
+    );
+  };
+
+
   // Renders the desired page
   render() {
     const { displayType } = this.props;
@@ -84,7 +101,7 @@ class QuizPageSingle extends Component {
           <View>
             {displayType === "basic" && this.renderBasicQuestionDisplay()}
             {displayType === "quiz" && this.renderQuizDisplay()}
-            {displayType === "edit" && this.renderEditDisplay()}
+            {displayType === "prof" && this.renderProfQuizDisplay()}
             {displayType === "preview" && this.renderPreviewDisplay()}
           </View>
         ) : (
