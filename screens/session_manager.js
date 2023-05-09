@@ -52,10 +52,10 @@ const SessionManagerDashboard = ({ navigation }) => {
                     onPress={handleCreateSession}
                     title="Create a Session"
                 />
-                <DashboardButtonContainer
+                {/* <DashboardButtonContainer
                     onPress={handleViewSessions}
                     title="View my Sessions"
-                />
+                /> */}
                 <DashboardButtonContainer
                     onPress={handleSetSessionSettings}
                     title="View Current Questions"

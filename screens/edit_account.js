@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { ScrollView, ImageBackground, StyleSheet, View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { globalStyles } from '../styles/global';
 
 const AccountEditingPage = () => {
