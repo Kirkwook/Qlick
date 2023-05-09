@@ -16,6 +16,8 @@ import { globalStyles } from "../styles/global";
 import axios from "axios";
 import { dashboardStyles } from '../styles/dashboards';
 import { NavigationActions } from 'react-navigation';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from 'react-native-async-storage';
 
 export default function Home({ navigation }) {
   const [email, setEmail] = useState("");
@@ -37,7 +39,10 @@ export default function Home({ navigation }) {
         password: password
       });
 
-      if (response.data){
+      const token = response.data.token;
+      const isProfessor = response.data.isProfessor;
+      await AsyncStorage.setItem('token', token);
+      if (isProfessor){
         console.log("Is professor")
         navigation.navigate("ProfessorUserDashboard") //add other data to pass to dashbaords (i.e userId)
       }

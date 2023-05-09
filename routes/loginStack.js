@@ -9,6 +9,7 @@ import ForgotPassword from '../screens/forgotpassword';
 //Ben Screens
 import CreateSession from '../screens/createSession'
 import StartSession from '../screens/startSession'
+import AuthLoadingScreen from "../screens/AuthLoadingScreen";
 
 // Connonr dashboards
 import InternalUserDashboard from "../screens/internal_dashboard";
@@ -37,16 +38,25 @@ import EditUserAccounts from "../screens/edit_all_user_accounts";
 
 const screens = {
 
+    AuthLoadingScreen: {
+        screen: AuthLoadingScreen,
+        navigationOptions: {
+            title: 'Loading',
+        }
+    },
+
+
     // DEVELOPMENT - INTERNAL USER FIRST
-    // InternalUserDashboard: {
-    //     screen: InternalUserDashboard,
-    //     navigationOptions: {
-    //         title: 'Internal',
-    //     }
-    // },
+    InternalUserDashboard: {
+        screen: InternalUserDashboard,
+        navigationOptions: {
+            title: 'Internal',
+        }
+    },
 
     //LOGIN SCREENS
 
+     
     Login: {
         screen: Login,
         navigationOptions: {
