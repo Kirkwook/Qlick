@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ImageBackground, StyleSheet, View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Alert, ScrollView} from 'react-native';
+import { ImageBackground, StyleSheet, View, Text, TextInput, TouchableOpacity, Keyboard, Alert, ScrollView} from 'react-native';
 import Checkbox from 'expo-checkbox';
 import axios from "axios";
 import { globalStyles } from '../styles/global';

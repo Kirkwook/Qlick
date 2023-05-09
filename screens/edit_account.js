@@ -18,12 +18,7 @@ const AccountEditingPage = () => {
 
   return (
     <ImageBackground source={backgroundImageSource} resizeMode="cover" style={globalStyles.backgroundImage} imageStyle={{ opacity: 0.15 }}>
-      <TouchableWithoutFeedback
-        onPress={() => {
-          Keyboard.dismiss();
-        }}
-      >
-        <View style={globalStyles.container}>
+    <ScrollView contentContainerStyle={globalStyles.container} KeyboardShouldPersistTaps='handled'>
           <View style={styles.infoContainer}>
             <Text style={styles.infoText}>First Name:</Text>
             <Text style={styles.infoText}>{fName}</Text>
@@ -52,9 +47,7 @@ const AccountEditingPage = () => {
               <Text style={styles.editButtonText}>Edit</Text>
             </TouchableOpacity>
           </View>
-
-        </View>
-      </TouchableWithoutFeedback>
+        </ScrollView>
     </ImageBackground>
   );
 };

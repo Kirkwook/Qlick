@@ -6,7 +6,6 @@ import {
   Text,
   TextInput,
   Image,
-  TouchableWithoutFeedback,
   Keyboard,
   TouchableOpacity,
   ImageBackground,
