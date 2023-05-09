@@ -11,98 +11,104 @@ import SessionManagerDashboard from "../screens/session_manager";
 import AccountEditingPage from "../screens/edit_account";
 import studentsQuizScreen from "../screens/QuizScreen";
 import QuizCreator from "../screens/quiz_creator"
-import profDashboard from "../screens/profDashboard"
 import ProfQuestionList from "../screens/profQuestionList";
 import BasicDisplayTest from "../screens/basic_question_display";
-
 import devNav from "../screens/dev_nav"
+import ViewStudentsForProf from "../screens/ViewStudentsForProf";
+import ViewProfQuizSets from "../screens/ViewProfQuizSets";
 
 const screens = {
-  // devNav: {
-  //   screen: devNav,
-  //   navigationOptions: {
-  //     title: "Developer Navigation",
-  //   },
-  // },
-  Login: {
-    screen: Login,
-    navigationOptions: {
-      title: "Login",
+    devNav: {
+        screen: devNav,
+        navigationOptions: {
+            title: "Developer Navigation",
+        },
     },
-  },
-  SignUp: {
-    screen: SignUp,
-    navigationOptions: {
-      title: "Sign Up",
+    Login: {
+        screen: Login,
+        navigationOptions: {
+            title: "Login",
+        },
     },
-  },
-  AccountEditingPage: {
-    screen: AccountEditingPage,
-    navigationOptions: {
-      title: "AccountEditingPage",
+    SignUp: {
+        screen: SignUp,
+        navigationOptions: {
+            title: "Sign Up",
+        },
     },
-  },
-  ForgotPassword: {
-    screen: ForgotPassword,
-    navigationOptions: {
-      title: "Forgot Password?",
+    AccountEditingPage: {
+        screen: AccountEditingPage,
+        navigationOptions: {
+            title: "AccountEditingPage",
+        },
     },
-  },
-  InternalUserDashboard: {
-    screen: InternalUserDashboard,
-    navigationOptions: {
-      title: "In. Dashboard",
+    ForgotPassword: {
+        screen: ForgotPassword,
+        navigationOptions: {
+            title: "Forgot Password?",
+        },
     },
-  },
-  StudentUserDashboard: {
-    screen: StudentUserDashboard,
-    navigationOptions: {
-      title: "St. Dashboard",
+    InternalUserDashboard: {
+        screen: InternalUserDashboard,
+        navigationOptions: {
+            title: "In. Dashboard",
+        },
     },
-  },
-  ProfessorUserDashboard: {
-    screen: ProfessorUserDashboard,
-    navigationOptions: {
-      title: "Pr. Dashboard",
+    StudentUserDashboard: {
+        screen: StudentUserDashboard,
+        navigationOptions: {
+            title: "St. Dashboard",
+        },
     },
-  },
-  profDashboard: {
-    screen: profDashboard,
-    navigationOptions: {
-      title: "Pr. Dashboard 2",
+    ProfessorUserDashboard: {
+        screen: ProfessorUserDashboard,
+        navigationOptions: {
+            title: "Pr. Dashboard",
+        },
     },
-  },
-  SessionManagerDashboard: {
-    screen: SessionManagerDashboard,
-    navigationOptions: {
-      title: "Session Dashboard",
+    SessionManagerDashboard: {
+        screen: SessionManagerDashboard,
+        navigationOptions: {
+            title: "Session Dashboard",
+        },
     },
-  },
-  studentsQuizScreen: {
-    screen: studentsQuizScreen,
-    navigationOptions: {
-      title: "Quiz",
+    studentsQuizScreen: {
+        screen: studentsQuizScreen,
+        navigationOptions: {
+            title: "Quiz",
+        },
     },
-  },
-  QuizCreator: {
-    screen: QuizCreator,
-    navigationOptions: {
-      title: "Quiz Maker",
+    QuizCreator: {
+        screen: QuizCreator,
+        navigationOptions: {
+            title: "Quiz Maker",
+        },
     },
-  },
-  ProfQuestionList: {
-    screen: ProfQuestionList,
-    navigationOptions: {
-      title: "Prof Q List",
+    ProfQuestionList: {
+        screen: ProfQuestionList,
+        navigationOptions: {
+            title: "Prof Q List",
+        },
     },
-  },
+    ViewStudentsForProf: {
+        screen: ViewStudentsForProf,
+        navigationOptions: {
+            title: 'ViewStudentsForProf',
+        }
+    },
+    ViewProfQuizSets: {
+        screen: ViewProfQuizSets,
+        navigationOptions: {
+            title: 'ViewProfQuizSets',
+        }
+    },
 };
 
 const DevStack = createStackNavigator(screens, {
-  defaultNavigationOptions: {
-    headerTintColor: "#444",
-    headerStyle: { backgroundColor: "#eee" },
-  },
+    defaultNavigationOptions: {
+        headerTintColor: "#444",
+        headerStyle: { backgroundColor: "#eee" },
+    },
 });
 
 export default createAppContainer(DevStack);
