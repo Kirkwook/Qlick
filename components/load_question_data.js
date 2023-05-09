@@ -4,6 +4,7 @@ import {
   QuestionLoader,
   BasicQuestionDisplay,
   QuizDisplay,
+  ProfQuizDisplay,
 } from "../components/question_components";
 
 class QuizPageSingle extends Component {
@@ -77,7 +78,7 @@ class QuizPageSingle extends Component {
 
     return (
       <View>
-        <QuizDisplay
+        <ProfQuizDisplay
           questionIndex={questionIndex}
           question={question}
           onNextQuestion={this.handleNextQuestion}

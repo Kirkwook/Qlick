@@ -45,8 +45,8 @@ const InternalUserDashboard = ({ navigation }) => {
         <View style={dashboardStyles.container}>
           <DashboardButtonContainer onPress={handleSwitchToStudentMode} title="Student Mode" />
           <DashboardButtonContainer onPress={handleSwitchToProfMode} title="Professor Mode" />
-          <DashboardButtonContainer onPress={handleEditAccounts} title="Edit User Accounts" />
-          <DashboardButtonContainer onPress={handleEditDatabase} title="Edit Database" />
+          {/* <DashboardButtonContainer onPress={handleEditAccounts} title="Edit User Accounts" />
+          <DashboardButtonContainer onPress={handleEditDatabase} title="Edit Database" /> */}
           <DashboardButtonContainer onPress={handleGoToLogin} title="Go to Login Page" />
         </View>
       </ImageBackground>

@@ -15,6 +15,7 @@ import {
 import { globalStyles } from "../styles/global";
 import axios from "axios";
 import QuizPageSingle from "../components/load_question_data";
+import { dashboardStyles } from "../styles/dashboards";
 
 const backgroundImageSource = require("../assets/Qlick_Logo_CM.png");
 
@@ -24,6 +25,10 @@ const backgroundImageSource = require("../assets/Qlick_Logo_CM.png");
 
 const ProfQuizScreen = ({ navigation, props }) => {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
+
+  const handleTogglePress = () => {
+    setIsSwitchOn(!isSwitchOn);
+  };
 
   return (
     <ImageBackground
@@ -45,10 +50,11 @@ const ProfQuizScreen = ({ navigation, props }) => {
 
 
         <View style={styles.switchContainer}>
-          <TouchableOpacity onPress={() => setIsSwitchOn(!isSwitchOn)}>
-            <View
-              style={[styles.toggleSwitch, isSwitchOn && styles.toggleSwitchOn]}
-            />
+          <TouchableOpacity onPress={handleTogglePress}
+
+              style={[styles.toggleSwitch, isSwitchOn && styles.toggleSwitchOn]}>
+                <Text style={styles.buttonTitle}>{isSwitchOn ? 'Question Closed' : 'Accepting Responses'}</Text>
+
           </TouchableOpacity>
         </View>
 
@@ -56,25 +62,6 @@ const ProfQuizScreen = ({ navigation, props }) => {
 
 
 
-        <View style={styles.exitContainer}>
-          <Button title="Exit question" onPress={() => {}} />
-        </View>
-
-        <View style={styles.imgDivContainer}>
-          <Image
-            source={require("../assets/Qlick_Logo_CM.png")}
-            style={styles.img}
-          />
-        </View>
-
-        <View style={styles.navContainer}>
-          <View style={styles.prevContainer}>
-            <Button title="Previous Question" onPress={() => {}} />
-          </View>
-          <View style={styles.nextContainer}>
-            <Button title="Next Question" onPress={() => {}} />
-          </View>
-        </View>
       </View>
       {/* </TouchableWithoutFeedback> */}
     </ImageBackground>
@@ -93,24 +80,27 @@ const styles = StyleSheet.create({
   },
 
   switchContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-end",
+    // flexDirection: "row",
+    // alignItems: "center",
     paddingHorizontal: 10,
     paddingVertical: 10,
   },
 
   toggleSwitch: {
-    width: 100,
-    height: 52,
+    width: 250,
+    height: 50,
     borderRadius: 30,
     borderWidth: 2,
     borderColor: "#808080",
     backgroundColor: "#bfff00",
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   toggleSwitchOn: {
     backgroundColor: "#ff0000",
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   exitContainer: {
@@ -166,5 +156,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#696969",
     borderRadius: 5,
     opacity: 0.65,
+    justifyContent: "flex-start",
+  },
+  buttonTitle: {
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });
