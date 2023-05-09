@@ -29,7 +29,7 @@ const ProfQuestionList = () => {
             <View style={styles.imgDiv}>
                 <Image
                     style={styles.sampleQ}
-                    source={require("../assets/Qlick_Logo_CM.png")}
+                    source={require("./assets/Qlick_Logo_CM.png")}
                 />
             </View>
 

@@ -66,14 +66,14 @@ export default function StartSession({ navigation }) {
             <Text style={styles.infoHeader}>Session ID</Text>
             <Text style={styles.infoText}>{navigation.getParam('sessionId')}</Text>
           </View>
+
+          <DashboardButtonGreen
+              // onPress = {navigation.navigate("StartSession", {sessionCode, sessionId})}
+              onPress = {startSession}
+              title="Start Session"
+          />
         </View>
-        <View style={dashboardStyles.container}>
-                <DashboardButtonGreen
-                    // onPress = {navigation.navigate("StartSession", {sessionCode, sessionId})}
-                    onPress = {startSession}
-                    title="Start Session"
-                />
-            </View>
+
       {/* </TouchableWithoutFeedback> */}
     </ImageBackground>
   )

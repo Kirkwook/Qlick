@@ -141,3 +141,87 @@ export const QuizDisplay = ({
     </View>
   );
 };
+
+export const ProfQuizDisplay = ({
+  questionIndex,
+  question,
+  onNextQuestion,
+  onPrevQuestion,
+}) => {
+  const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const letters = ["A", "B", "C", "D", "E"];
+
+  const handleAnswerOptionPress = (questionIndex, optionIndex) => {
+    // Update the selected answer index state
+    setSelectedAnswerIndex(optionIndex);
+  
+    // Store the selected answer in a JSON object to be saved later
+    const answer = {
+      questionIndex: questionIndex,
+      selectedOptionIndex: optionIndex
+    };
+  
+    // Do something with the answer object, such as adding it to an array of answers
+    // or saving it to a file/database
+    console.log(answer);
+
+  };
+
+  return (
+    <View style={quizStyles.container}>
+      <View>
+        {/* This is where the title and question info are located */}
+        <View style={quizStyles.qTop}>
+          <Text style={quizStyles.qTitle}>Question {questionIndex + 1}</Text>
+          <Text style={quizStyles.qText}>{question.question_text}</Text>
+          <Image
+            source={{ uri: `data:image/png;base64,${question.image_encoding}` }}
+            style={quizStyles.image}
+          />
+        </View>
+
+        {/* Answer options section of page */}
+        <View style={quizStyles.answerOptions}>
+          {question.options.map((option, i) => (
+            <AnswerOption
+              key={i}
+              letter={letters[i]}
+              option={option}
+              index={i}
+              select={selectedAnswerIndex === i}
+              onPress={handleAnswerOptionPress}
+            ></AnswerOption>
+          ))}
+        </View>
+
+        {/* These are the navigation buttons for the previous and next questions */}
+        {/* TODO Add functionality for previous question button */}
+        <View style={quizStyles.qNav}>
+          <TouchableOpacity
+            style={quizStyles.prevButton}
+            onPress={onPrevQuestion}
+          >
+            <Text style={quizStyles.buttonText}>
+              &#x3C;&#x2D;&#x2D; Previous &#x2D;&#x2D;
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={quizStyles.nextButton}
+            onPress={onNextQuestion}
+          >
+            <Text style={quizStyles.buttonText}>
+              &#x2D;&#x2D; Next &#x2D;&#x2D;&#x3E;
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* TODO Make exit button show up */}
+        {/* 
+        <View style={quizStyles.exit}>
+          <Button title="Exit quiz" />
+        </View> */}
+      </View>
+    </View>
+  );
+};
