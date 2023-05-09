@@ -52,7 +52,7 @@ const screens = {
     InternalUserDashboard: {
         screen: InternalUserDashboard,
         navigationOptions: {
-            title: 'Internal',
+            title: 'Demo Dashboard',
         }
     },
 
@@ -81,7 +81,7 @@ const screens = {
     InternalUserDashboard: {
         screen: InternalUserDashboard,
         navigationOptions: {
-            title: 'Internal',
+            title: 'Demo Dashboard',
         }
     },
     StudentUserDashboard: {
